@@ -54,50 +54,7 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="headline text-black w-full text-center">
-                <h1 className="text-4xl font-bold">TEDxIEMSaltLake</h1>
-            </div>
-
-            <div className="about-tedx text-black w-full flex justify-start">
-                <div className="max-w-full">
-                    <h1 className="text-2xl text-[#E62B1E] font-semibold mb-2">Mission</h1>
-                    <p className="text-base leading-relaxed">
-
-                    </p>
-                </div>
-
-            </div>
-            <div className="about-tedx text-black w-full flex justify-start">
-                <div className="max-w-full">
-                    <h1 className="text-2xl text-[#E62B1E] font-semibold mb-2">Vision</h1>
-                    <p className="text-base leading-relaxed">
-
-                    </p>
-                </div>
-
-            </div>
-            <div className="about-tedx text-black w-full flex justify-start">
-                <div className="max-w-full">
-                    <h1 className="text-2xl text-[#E62B1E] font-semibold mb-2">Goals</h1>
-                    <p className="text-base leading-relaxed">
-
-                    </p>
-                </div>
-
-            </div>
-            <div className="when-where-section w-full px-4 py-12">
-                <h2 className="text-3xl font-semibold text-black mb-4 text-left">
-                    When and Where?
-                </h2>
-
-                <div className="w-full">
-                    <img
-                        src="/images/venue/venue-map.png"
-                        alt="Venue Map"
-                        className="w-full h-auto object-cover rounded-lg shadow-lg"
-                    />
-                </div>
-            </div>
+            
 
 
         </div>
