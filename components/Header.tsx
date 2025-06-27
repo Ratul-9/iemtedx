@@ -6,16 +6,16 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="w-full bg-black text-[#E62B1E] sticky top-6 z-50 pt-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center gap-4 px-6">
+    <header className="w-full bg-black text-[#E62B1E] sticky top-6 z-50">
+      <div className="max-w-7xl flex justify-between items-center gap-4 px-6">
         
         {/* LEFT: Main Logo */}
         <div className="flex items-center">
           <Image
             src="/images/logo/TED Event Logo.png" // ✅ Replace with your real path
             alt="TEDx Logo"
-            width={100}
-            height={100}
+            width={165}
+            height={165}
             className="object-contain"
             priority
           />
