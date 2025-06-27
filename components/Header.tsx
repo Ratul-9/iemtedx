@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="w-full bg-black text-[#E62B1E] sticky top-6 z-50">
+    <header className="w-full bg-black text-[#E62B1E] sticky z-50">
       <div className="max-w-7xl flex justify-between items-center gap-4 px-6">
         
         {/* LEFT: Main Logo */}

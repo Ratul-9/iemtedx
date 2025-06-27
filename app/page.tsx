@@ -5,7 +5,6 @@ import TeamMemberCard from "@/components/MemberCard";
 export default function Home() {
   return (
     <div>
-      <Header />
     </div>
 
   );
