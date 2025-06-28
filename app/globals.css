@@ -71,3 +71,27 @@ html{
 .font-body {
   font-family: var(--font-body);
 }
+
+
+.underline-slide {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.underline-slide::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;                 
+  width: 0;                    
+  background-color: #e62b1e;  
+  transition: width 0.3s ease;
+}
+
+.underline-slide:hover::after {
+  width: 100%;               
+}
+
+
