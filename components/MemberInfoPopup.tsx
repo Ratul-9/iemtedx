@@ -43,7 +43,7 @@ export default function MemberInfoPopup({
           <p className="text-sm text-gray-600 mb-4">{designation}</p>
           <p className="text-sm leading-relaxed text-center">{bio}</p>
           <div className="social flex gap-2 items-center">
-            <FaLinkedin href='https://www.linkedin.com/in/debanurag/' className="text-blue-700 text-4xl" />
+            <FaLinkedin href={linkedinUrl} className="text-blue-700 text-4xl" />
           </div>
 
 
