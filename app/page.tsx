@@ -1,8 +1,5 @@
 'use client';
-
 import CountdownTimer from "@/components/TimerClock";
-
-
 export default function Home() {
   return (
     <div>
@@ -29,8 +26,8 @@ export default function Home() {
         row-span-1 
         bg-white p-6 rounded-lg  text-black
       ">
-          <h2 className="text-2xl font-bold mb-2">Welcome to TEDxIEMSaltLake</h2>
-          <p className="text-base leading-relaxed">
+          <h2 className="text-2xl font-heading font-light mb-2">Welcome to TEDxIEMSaltLake</h2>
+          <p className="text-base leading-relaxed font-body">
             Here you'll find innovation, inspiration, and brilliant minds working together to create something meaningful. Let's dive into the experience!
           </p>
         </div>
@@ -46,14 +43,14 @@ export default function Home() {
       </div>
 
       <div className="headline text-black w-full text-center mt-10">
-        <h1 className="text-4xl font-bold">TEDxIEMSaltLake</h1>
+        <h1 className="text-3xl font-heading font-light">TEDxIEMSaltLake</h1>
       </div>
 
-      <div className="about-tedx text-black w-full flex justify-start">
+      <div className="about-tedx text-black w-full flex ml-4 justify-start">
         <div className="max-w-full">
-          <h1 className="text-2xl text-[#E62B1E] font-semibold mb-2">Mission</h1>
-          <p className="text-base leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui suscipit magnam quisquam architecto autem dolorum 
+          <h1 className="text-2xl text-[#E62B1E] font-heading font-semibold mb-2">Mission</h1>
+          <p className="text-base leading-relaxed font-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus
             consequatur assumenda quam aliquid, distinctio excepturi magni debitis aut, enim doloremque repudiandae aliquam iusto 
             saepe!
 
@@ -61,20 +58,20 @@ export default function Home() {
         </div>
 
       </div>
-      <div className="about-tedx text-black w-full flex justify-start">
+      <div className="about-tedx text-black w-full flex ml-4 justify-start">
         <div className="max-w-full">
-          <h1 className="text-2xl text-[#E62B1E] font-semibold mb-2">Vision</h1>
-          <p className="text-base leading-relaxed">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus deleniti qui itaque, dignissimos non, adipisci beatae
+          <h1 className="text-2xl text-[#E62B1E] font-semibold font-heading mb-2">Vision</h1>
+          <p className="text-base leading-relaxed font-body">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus deleniti qui itaque, dignissimo
              perferendis modi cupiditate ea architecto, aliquam unde nihil similique aperiam eligendi quasi facere mollitia.
           </p>
         </div>
 
       </div>
-      <div className="about-tedx text-black w-full flex justify-start">
+      <div className="about-tedx text-black w-full flex ml-4 justify-start">
         <div className="max-w-full">
-          <h1 className="text-2xl text-[#E62B1E] font-semibold mb-2">Goals</h1>
-          <p className="text-base leading-relaxed">
+          <h1 className="text-2xl text-[#E62B1E] font-heading font-semibold mb-2">Goals</h1>
+          <p className="text-base leading-relaxed font-body">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit itaque in error mollitia natus necessitatibus, 
               eius adipisci dolore cumque molestias enim consequuntur exercitationem voluptas deleniti explicabo totam vitae 
               asperiores quas.
@@ -83,7 +80,7 @@ export default function Home() {
 
       </div>
       <div className="when-where-section w-full px-4 py-12">
-        <h2 className="text-3xl font-semibold text-black mb-4 text-left">
+        <h2 className="text-3xl font-heading font-semibold text-black mb-4 text-left">
           When and Where?
         </h2>
 
