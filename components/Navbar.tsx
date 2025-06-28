@@ -35,9 +35,9 @@ export default function Navbar() {
         </div>
 
         {/* Social Links (Desktop Only) */}
-        <div className="hidden lg:flex space-x-3 mx-2 my-0 px-2 py-1 bg-[#E62B1E] rounded-sm">
+        <div className="hidden lg:flex space-x-3 mx-3 my-0 px-2 py-1 bg-[#E62B1E] rounded-sm">
           <Link href="https://www.instagram.com/reel/DKzjyuVhB8H/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="text-white text-lg transition-colors" />
+            <FaInstagram className="text-white text-xl transition-colors" />
           </Link>
           <Link href="https://x.com/TedxIEMSaltLake/status/1933183132251144236" target="_blank" rel="noopener noreferrer">
             <FaXTwitter className="text-white text-lg transition-colors" />
