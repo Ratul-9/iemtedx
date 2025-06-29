@@ -9,11 +9,10 @@ export default function Header() {
     <header className="w-full bg-black text-[#E62B1E] sticky z-50">
       <div className="max-w-7xl flex justify-between items-center gap-4 px-6">
 
-        {/* LEFT: Main Logo */}
         <a href="/">
           <div className="flex items-center">
             <Image
-              src="/images/logo/TED Event Logo.png" // ✅ Replace with your real path
+              src="/images/logo/TED Event Logo.png"
               alt="TEDx Logo"
               width={165}
               height={165}

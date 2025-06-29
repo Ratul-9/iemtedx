@@ -12,7 +12,7 @@ export default function Navbar() {
 
   const handleUnreadyClick = () => {
     setShowPopUp(true);
-  }
+  };
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -22,35 +22,39 @@ export default function Navbar() {
 
         {/* Logo only visible on mobile */}
         <div className="flex lg:hidden items-center font-bold text-xl">
+          {/* Put your logo here if needed */}
         </div>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex space-x-6 font-semibold tracking-wide uppercase text-sm">
-          <Link href="/" className=" underline-slide hover:text-white transition-colors">Home</Link>
-          <Link href="/team" className=" underline-slide hover:text-white transition-colors">Team</Link>
-          <Link href="/about" className="underline-slide hover:text-white transition-colors">About</Link>
-          <Link href="/speakers" className=" underline-slide hover:text-white transition-colors">Speakers</Link>
-          <Link href="" onClick={handleUnreadyClick} className=" underline-slide hover:text-white transition-colors">Schedule</Link>
-          <Link href="" onClick={handleUnreadyClick} className=" underline-slide hover:text-white transition-colors">Sponsors</Link>
-        </div>
+        {/* Desktop Nav + Socials */}
+        <div className="hidden lg:flex w-full items-center">
+          {/* Left-side navigation links */}
+          <div className="flex space-x-6 font-semibold tracking-wide uppercase text-sm">
+            <Link href="/" className="underline-slide hover:text-white transition-colors">Home</Link>
+            <Link href="/team" className="underline-slide hover:text-white transition-colors">Team</Link>
+            <Link href="/about" className="underline-slide hover:text-white transition-colors">About</Link>
+            <Link href="/speakers" className="underline-slide hover:text-white transition-colors">Speakers</Link>
+            <Link href="" onClick={handleUnreadyClick} className="underline-slide hover:text-white transition-colors">Schedule</Link>
+            <Link href="" onClick={handleUnreadyClick} className="underline-slide hover:text-white transition-colors">Sponsors</Link>
+          </div>
 
-        {/* Social Links (Desktop Only) */}
-        <div className="hidden lg:flex space-x-3 mx-3 my-0 px-2 py-1 bg-[#E62B1E] rounded-sm">
-          <Link href="https://www.instagram.com/reel/DKzjyuVhB8H/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className="text-white text-xl transition-colors" />
-          </Link>
-          <Link href="https://x.com/TedxIEMSaltLake/status/1933183132251144236" target="_blank" rel="noopener noreferrer">
-            <FaXTwitter className="text-white text-lg transition-colors" />
-          </Link>
-          <Link href="https://www.facebook.com/share/v/1HRMgFoxh8/" target="_blank" rel="noopener noreferrer">
-            <FaFacebookF className="text-white text-lg transition-colors" />
-          </Link>
-          <Link href="https://www.linkedin.com/feed/update/urn:li:activity:7338949129546477572" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin className="text-white text-lg transition-colors" />
-          </Link>
-          <Link href="https://youtu.be/5iuI_BQyzhY" target="_blank" rel="noopener noreferrer">
-            <FaYoutube className="text-white text-lg transition-colors" />
-          </Link>
+          {/* Spacer to push social icons to right */}
+          <div className="ml-auto flex space-x-3 px-2 py-1 bg-[#E62B1E] rounded-sm">
+            <Link href="https://www.instagram.com/reel/DKzjyuVhB8H/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">
+              <FaInstagram className="text-white text-xl transition-colors" />
+            </Link>
+            <Link href="https://x.com/TedxIEMSaltLake/status/1933183132251144236" target="_blank" rel="noopener noreferrer">
+              <FaXTwitter className="text-white text-lg transition-colors" />
+            </Link>
+            <Link href="https://www.facebook.com/share/v/1HRMgFoxh8/" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF className="text-white text-lg transition-colors" />
+            </Link>
+            <Link href="https://www.linkedin.com/feed/update/urn:li:activity:7338949129546477572" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin className="text-white text-lg transition-colors" />
+            </Link>
+            <Link href="https://youtu.be/5iuI_BQyzhY" target="_blank" rel="noopener noreferrer">
+              <FaYoutube className="text-white text-lg transition-colors" />
+            </Link>
+          </div>
         </div>
 
         {/* Hamburger Menu Button (Mobile Only) */}
@@ -94,6 +98,7 @@ export default function Navbar() {
         </div>
       )}
 
+      {/* Pop-up */}
       <ComingSoonPopup show={showPopUp} onClose={() => setShowPopUp(false)} />
     </nav>
   );
