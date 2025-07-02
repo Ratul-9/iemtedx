@@ -42,10 +42,7 @@ export default function MemberInfoPopup({
           <h2 className="text-xl font-bold">{name}</h2>
           <p className="text-sm text-gray-600 mb-4">{designation}</p>
           <p className="text-sm leading-relaxed text-center">{bio}</p>
-          <div className="social flex gap-2 items-center">
-            <FaLinkedin href={linkedinUrl} className="text-blue-700 text-4xl" />
-          </div>
-
+          
 
         </div>
       </div>

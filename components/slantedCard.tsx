@@ -10,13 +10,23 @@ interface SlantedCardProps {
   from: 'left' | 'right';
   bgColor: string;
   clipClass: string;
+  titleClass?: string;
+  contentClass?: string;
 }
 
-export default function SlantedCard({ title, content, from, bgColor, clipClass }: SlantedCardProps) {
+export default function SlantedCard({
+  title,
+  content,
+  from,
+  bgColor,
+  clipClass,
+  titleClass,
+  contentClass,
+}: SlantedCardProps) {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.15,
   });
 
   useEffect(() => {
@@ -24,23 +34,36 @@ export default function SlantedCard({ title, content, from, bgColor, clipClass }
       controls.start({
         x: 0,
         opacity: 1,
-        transition: { duration: 0.8, ease: 'easeOut' },
+        transition: {
+          duration: 0.9,
+          ease: 'easeOut',
+        },
       });
     }
   }, [controls, inView]);
 
-  const initialX = from === 'left' ? -200 : 200;
+  const initialX = from === 'left' ? -500 : 500; // 🚀 Extreme offset
 
   return (
     <motion.div
       ref={ref}
       initial={{ x: initialX, opacity: 0 }}
       animate={controls}
-      className={`w-full md:w-[90%] text-white ${bgColor} ${clipClass} ${from === 'right' ? 'ml-auto rounded-l-xl' : 'ml-0 rounded-r-xl'} shadow-lg`}
+      className={`
+        w-full md:w-[90%]
+        ${bgColor} 
+        ${clipClass} 
+        ${from === 'right' ? 'ml-auto rounded-l-2xl' : 'ml-0 rounded-r-2xl'}
+        shadow-2xl
+        transition-transform duration-500
+        overflow-hidden
+      `}
     >
-      <div className="p-6 md:p-8">
-        <h1 className="text-2xl text-[#E62B1E] font-heading font-semibold mb-2">{title}</h1>
-        <p className="text-base leading-relaxed text-gray-300">
+      <div className="p-8 md:p-10">
+        <h1 className={titleClass || "text-3xl md:text-4xl font-extrabold text-white tracking-wide mb-4"}>
+          {title}
+        </h1>
+        <p className={contentClass || "text-base md:text-lg text-gray-300 leading-relaxed font-medium"}>
           {content}
         </p>
       </div>

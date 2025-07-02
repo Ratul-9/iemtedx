@@ -118,32 +118,34 @@ export default function Home() {
       </div>
 
       <div className="headline w-full text-center mt-10">
-        <h1 className="text-4xl md:text-5xl font-heading font-light text-black transition-all duration-500 ease-in-out hover:scale-105 hover:text-red-600">
+        <h1 className="text-4xl md:text-5xl font-body font-light text-black transition-all duration-500 ease-in-out hover:scale-105 hover:text-red-600">
           TEDxIEMSaltLake
         </h1>
       </div>
 
 
-      <div className="w-full space-y-12 py-10">
+      <div className="w-full space-y-16 py-12 px-6 max-w-5xl mx-auto">
 
         {/* MISSION - FROM LEFT */}
         <SlantedCard
           title="Mission"
           content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet"
           from="left"
-          bgColor="bg-[#1f1f1f]"
-          clipClass="clip-left"
+          bgColor="bg-black shadow-lg"
+          clipClass="clip-left-bold"
+          titleClass="text-3xl font-extrabold tracking-wide text-white"
+          contentClass="text-gray-300 leading-relaxed font-medium"
         />
-
-
 
         {/* VISION - FROM RIGHT */}
         <SlantedCard
           title="Vision"
           content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit ametLorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos perferendis modi cupiditate aperiam. Lorem ipsum dolor sit amet..."
           from="right"
-          bgColor="bg-[#2a2a2a]"
-          clipClass="clip-right"
+          bgColor="bg-[#E62B1E] shadow-xl"
+          clipClass="clip-right-bold"
+          titleClass="text-3xl font-extrabold tracking-wide text-white"
+          contentClass="text-black leading-relaxed font-medium"
         />
 
         {/* GOALS - FROM LEFT */}
@@ -151,11 +153,14 @@ export default function Home() {
           title="Goals"
           content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit ametLorem ipsum dolor sit amet consectetur adipisicing elit. Sit itaque natus necessitatibus, voluptas explicabo. Lorem ipsum dolor sit amet..."
           from="left"
-          bgColor="bg-[#1f1f1f]"
-          clipClass="clip-left"
+          bgColor="bg-black shadow-lg"
+          clipClass="clip-left-bold"
+          titleClass="text-3xl font-extrabold tracking-wide text-white"
+          contentClass="text-gray-300 leading-relaxed font-medium"
         />
 
       </div>
+
 
 
       <div className="when-where-section w-full px-4 py-12">
