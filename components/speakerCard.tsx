@@ -1,87 +1,67 @@
-'use client';
+// @/components/SpeakerCard.tsx
+import React from 'react';
+import { Users } from 'lucide-react';
 
-import Image from 'next/image';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import useHasMounted from '@/hooks/useHasMounted';
-
-type SpeakerCardProps = {
+interface Speaker {
   name: string;
   designation: string;
-  bio: string;
   imageSrc: string;
-  detailedBio: string;
-};
+  bio: string;
+}
 
-export default function SpeakerCard({
-  name,
-  designation,
-  bio,
-  imageSrc,
-  detailedBio,
-}: SpeakerCardProps) {
-  const [showDetails, setShowDetails] = useState(false);
-  const hasMounted = useHasMounted();
-  if (!hasMounted) return null;
+interface SpeakerCardProps {
+  speaker: Speaker;
+  index: number;
+  onClick: (speaker: Speaker) => void;
+  isVisible: boolean;
+}
 
+const SpeakerCard: React.FC<SpeakerCardProps> = ({ 
+  speaker, 
+  index, 
+  onClick, 
+  isVisible 
+}) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClick(speaker);
+  };
 
   return (
-    <>
-      <motion.div
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={() => setShowDetails(true)}
-        className="relative w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer border border-[#E62B1E]/20 hover:shadow-[#E62B1E]/30 transition-all"
-      >
-        <div className="h-64 relative w-full">
-          <Image
-            src={imageSrc}
-            alt={name}
-            fill
-            className="object-cover"
-            style={{ borderBottom: '2px solid #E62B1E' }}
-          />
+    <div 
+      className={`transform transition-all duration-700 hover:scale-105 w-full max-w-sm cursor-pointer ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+      }`}
+      style={{ 
+        transitionDelay: `${index * 100 + 500}ms`,
+        animation: `slideInUp 0.8s ease-out ${index * 0.05 + 0.5}s both`
+      }}
+      onClick={handleClick}
+    >
+      <div className="relative group">
+        <div className="absolute -inset-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
+        <div className="relative bg-white/90 backdrop-blur-sm rounded-xl p-1 shadow-lg border border-gray-200/50 group-hover:shadow-2xl transition-all duration-300">
+          <div className="h-64 relative w-full overflow-hidden rounded-t-xl">
+            <img
+              src={speaker.imageSrc}
+              alt={speaker.name}
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <div className="p-4">
+            <h3 className="text-2xl font-bold text-red-600">{speaker.name}</h3>
+            <p className="text-sm text-gray-600">{speaker.designation}</p>
+            <p className="text-sm text-gray-800 mt-2 line-clamp-3">{speaker.bio}</p>
+          </div>
         </div>
-        <div className="p-4 text-black">
-          <h3 className="text-2xl font-bold text-[#E62B1E]">{name}</h3>
-          <p className="text-sm text-gray-600">{designation}</p>
-          <p className="text-sm text-gray-800 mt-2">{bio}</p>
+        {/* Click indicator */}
+        <div className="absolute top-2 right-2 bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
+          <Users className="w-4 h-4" />
         </div>
-      </motion.div>
-
-      {/* SLIDE-IN DETAIL PANEL */}
-      <AnimatePresence>
-        {showDetails && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.5 }}
-            className="fixed top-0 right-0 h-screen w-full md:w-[700px] z-50 bg-white shadow-2xl origin-right overflow-y-auto"
-            style={{ clipPath: 'polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
-          >
-            <div className="relative p-6">
-              <button
-                onClick={() => setShowDetails(false)}
-                className="absolute top-4 right-4 text-[#E62B1E] text-xl font-bold"
-              >
-                ✕
-              </button>
-              <div className="w-32 h-32 relative mx-auto mt-6 mb-4">
-                <Image
-                  src={imageSrc}
-                  alt={name}
-                  fill
-                  className="rounded-full object-cover border-4 border-[#E62B1E]"
-                />
-              </div>
-              <h2 className="text-2xl font-bold text-[#E62B1E] text-center">{name}</h2>
-              <p className="text-center text-gray-600 mb-6">{designation}</p>
-              <p className="text-sm text-gray-800 leading-relaxed">{detailedBio}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      </div>
+    </div>
   );
-}
+};
+
+export default SpeakerCard;
