@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { teamMembers } from "@/data/coreTeam";
 import TeamMemberCard from "@/components/MemberCard";
-import { FacultCoordinators } from "@/data/facultyCoordinators";
+import { FacultCoordinators, ChiefAdvisors, Patron } from "@/data/facultyCoordinators";
 import Footer from "@/components/footer";
 import { Users, Sparkles, Award, Target, X, Linkedin, Mail, MapPin, Calendar } from 'lucide-react';
 
@@ -59,7 +59,7 @@ interface ParallaxSectionProps {
 interface TeamMember {
   name: string;
   designation: string;
-  imageSrc: string;
+  imageSrc?: string;
   bio?: string;
   linkedinUrl?: string;
   email?: string;
@@ -174,30 +174,13 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
               )}
             </div>
 
-            {/* Skills/Expertise (enhanced with better styling) */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-gray-800">Expertise</h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
-                  Leadership
-                </span>
-                <span className="px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 text-green-800 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
-                  Innovation
-                </span>
-                <span className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
-                  Strategy
-                </span>
-              </div>
-            </div>
+            
 
             {/* Action Buttons (enhanced hover effects) */}
             <div className="pt-4 space-y-3">
               <button className="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-300 transform hover:scale-105">
                 Connect
-              </button>
-              <button className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors duration-200 hover:shadow-md">
-                View Projects
-              </button>
+              </button> 
             </div>
           </div>
         </div>
@@ -243,7 +226,7 @@ const TeamMemberCardWrapper: React.FC<TeamMemberCardWrapperProps> = ({
 }) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    e.stopPropagation();
+    e.stopPropagation();    
     onClick(member);
   };
 
@@ -306,13 +289,6 @@ export default function Team() {
     return member.designation.toLowerCase().includes(activeFilter);
   });
 
-  const stats = [
-    { icon: Users, label: "Team Members", value: teamMembers.length + FacultCoordinators.length },
-    { icon: Award, label: "Years Experience", value: 5 },
-    { icon: Target, label: "Projects Delivered", value: 50 },
-    { icon: Sparkles, label: "Happy Clients", value: 100 }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
       {/* Team Member Sidebar */}
@@ -352,24 +328,118 @@ export default function Team() {
           </p>
           
           {/* Animated Stats (enhanced hover effects) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className={`text-center group cursor-pointer transition-all duration-500 hover:scale-110 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl mb-4 group-hover:shadow-lg group-hover:shadow-blue-600/30 transition-all duration-300">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-gray-800">
-                  <AnimatedCounter end={stat.value} suffix="+" />
-                </div>
-                <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          
         </div>
+
+        {/* Patron */}
+        <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+          <div className="relative">
+            <div className="flex items-center mb-8">
+              <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
+              <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative">
+                Patron
+                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+              </h3>
+              <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-purple-500 rounded-full"></div>
+            </div>
+            
+            <div className="flex flex-wrap gap-8 font-body justify-center">
+              {Patron.map((coordinator, index) => {
+                const handleCoordinatorClick = (e: React.MouseEvent) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMemberClick(coordinator);
+                };
+
+                return (
+                  <div 
+                    key={index}
+                    className={`transform transition-all duration-700 hover:scale-105 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                    style={{ 
+                      transitionDelay: `${index * 150 + 300}ms`,
+                      animation: `slideInUp 0.8s ease-out ${index * 0.1 + 0.3}s both`
+                    }}
+                    onClick={handleCoordinatorClick}
+                  >
+                    <div className="relative group">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
+                      <div className="relative">
+                        <div onClick={(e) => e.stopPropagation()}>
+                          <TeamMemberCard 
+                            name={coordinator.name} 
+                            designation={coordinator.designation} 
+                            imageSrc={coordinator.imageSrc} 
+                            bio={coordinator.bio || ''} 
+                            linkedinUrl={coordinator.linkedinUrl || ''} 
+                          />
+                        </div>
+                      </div>
+                      {/* Click indicator */}
+                      <div className="absolute top-2 right-2 bg-blue-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Users className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </ParallaxSection>
+        {/* Chief Advisors */}
+        <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+          <div className="relative">
+            <div className="flex items-center mb-8">
+              <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
+              <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative">
+                Chief Advisors
+                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+              </h3>
+              <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-purple-500 rounded-full"></div>
+            </div>
+            
+            <div className="flex flex-wrap gap-8 font-body justify-center">
+              {ChiefAdvisors.map((coordinator, index) => {
+                const handleCoordinatorClick = (e: React.MouseEvent) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMemberClick(coordinator);
+                };
+
+                return (
+                  <div 
+                    key={index}
+                    className={`transform transition-all duration-700 hover:scale-105 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                    style={{ 
+                      transitionDelay: `${index * 150 + 300}ms`,
+                      animation: `slideInUp 0.8s ease-out ${index * 0.1 + 0.3}s both`
+                    }}
+                    onClick={handleCoordinatorClick}
+                  >
+                    <div className="relative group">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
+                      <div className="relative">
+                        <div onClick={(e) => e.stopPropagation()}>
+                          <TeamMemberCard 
+                            name={coordinator.name} 
+                            designation={coordinator.designation} 
+                            imageSrc={coordinator.imageSrc} 
+                            bio={coordinator.bio || ''} 
+                            linkedinUrl={coordinator.linkedinUrl || ''} 
+                          />
+                        </div>
+                      </div>
+                      {/* Click indicator */}
+                      <div className="absolute top-2 right-2 bg-blue-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Users className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </ParallaxSection>
+
 
         {/* Faculty Coordinators Section */}
         <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
@@ -439,23 +509,6 @@ export default function Team() {
             </div>
 
             {/* Filter Buttons (enhanced styling) */}
-            <div className="flex justify-center mb-12">
-              <div className="bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200/50">
-                {['all', 'tech', 'design'].map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => setActiveFilter(filter)}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 mx-1 shadow-sm hover:shadow-md ${
-                      activeFilter === filter
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg'
-                        : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
-                    }`}
-                  >
-                    {filter.charAt(0).toUpperCase() + filter.slice(1)}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
               {filteredTeamMembers.length > 0 ? (

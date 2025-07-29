@@ -1,4 +1,4 @@
-export type FacultyCoordinator = {
+export type Faculty = {
     name: string;
     designation: string;
     imageSrc: string;
@@ -6,21 +6,35 @@ export type FacultyCoordinator = {
     linkedinUrl: string;
 }
 
-export const FacultCoordinators: FacultyCoordinator[] = [
+export const Patron: Faculty[] = [
+    {
+        name: 'Prof. Dr. Satyajit Chakrabarti',
+        designation: 'Director of IEM-UEM Group',
+        imageSrc: '/images/Defualt.jpg',
+        bio: '',
+        linkedinUrl: '',
+    }
+    
+]
+
+export const ChiefAdvisors: Faculty[] = [
     {
         name: 'Prof. Dr. Prabir Kumar Das',
         designation: 'H.O.D BSH Department IEM SaltLake',
-        imageSrc: '',
+        imageSrc: '/images/Defualt.jpg',
         bio: '',
         linkedinUrl: '',
     },
     {
         name: 'Samapika Das Biswas',
         designation: 'Assistant HOD BSH Department IEM SaltLake',
-        imageSrc: '',
+        imageSrc: '/images/Defualt.jpg',
         bio: '',
         linkedinUrl: '',
     },
+] 
+
+export const FacultCoordinators: Faculty[] = [
     {
         name: 'Bonani Roychoudhury',
         designation: '',
@@ -30,7 +44,7 @@ export const FacultCoordinators: FacultyCoordinator[] = [
     },
     {
         name: 'Atreyee Chaudhari',
-        designation: 'Technical And Research Assistant at Institute of Engineering & Management (IEM)',
+        designation: 'Technical And Research Assistant(IEM)',
         imageSrc: '/images/FacultyCoordinators/Atreyee Chaudhari.jpg',
         bio: '',
         linkedinUrl: '',

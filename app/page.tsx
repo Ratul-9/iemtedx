@@ -7,9 +7,9 @@ import Footer from "@/components/footer";
 import SlantedCard from "@/components/slantedCard";
 
 const imageList = [
-  "/images/carousel/img1.jpg",
-  "/images/carousel/img2.jpg",
-  "/images/carousel/img3.jpg",
+  "/images/Defualt.jpg",
+  "/images/Defualt.jpg",
+  "/images/Defualt.jpg",
 ];
 
 export default function Home() {

@@ -195,20 +195,7 @@ const SpeakerSidebar: React.FC<SpeakerSidebarProps> = ({ speaker, isOpen, onClos
             </div>
 
             {/* Expertise */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-gray-800">Expertise</h3>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-gradient-to-r from-red-100 to-orange-100 text-red-800 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
-                  Public Speaking
-                </span>
-                <span className="px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 text-green-800 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
-                  Innovation
-                </span>
-                <span className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow">
-                  Leadership
-                </span>
-              </div>
-            </div>
+            
 
             {/* Action Buttons */}
             <div className="pt-4 space-y-3">
@@ -245,12 +232,7 @@ export default function SpeakersPage() {
     setTimeout(() => setSelectedSpeaker(null), 300);
   };
 
-  const stats = [
-    { icon: Users, label: "Speakers", value: Speakers.length },
-    { icon: Award, label: "Total Experience", value: 100 },
-    { icon: Target, label: "Events Spoken", value: 500 },
-    { icon: Sparkles, label: "Inspired Attendees", value: 10000 }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
@@ -291,23 +273,7 @@ export default function SpeakersPage() {
           </p>
           
           {/* Animated Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className={`text-center group cursor-pointer transition-all duration-500 hover:scale-110 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-orange-700 rounded-2xl mb-4 group-hover:shadow-lg group-hover:shadow-red-600/30 transition-all duration-300">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-gray-800">
-                  <AnimatedCounter end={stat.value} suffix="+" />
-                </div>
-                <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          
         </div>
 
         {/* Speakers Grid */}
