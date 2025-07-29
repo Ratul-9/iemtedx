@@ -29,8 +29,8 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-body font-semibold mb-2 text-red-500">Contact</h3>
           <ul className="text-sm text-gray-300 space-y-2">
-            <li>Email: <a href="mailto:tedxiem@iem.edu.in" className="hover:text-red-400 transition">tedxiem@iem.edu.in</a></li>
-            <li>Phone: <a href="tel:+911234567890" className="hover:text-red-400 transition">+91 12345 67890</a></li>
+            <li>Email: <a href="mailto:tedxiem@iem.edu.in" className="hover:text-red-400 transition">tedxiem@gmail.com</a></li>
+            <li>Phone: <a href="tel:+911234567890" className="hover:text-red-400 transition">(+91) 9073121695 </a></li>
             <li>Location: Sector V, Kolkata, India</li>
           </ul>
         </div>
