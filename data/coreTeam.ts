@@ -136,8 +136,8 @@ export const teamMembers: TeamMember[] = [
     linkedinUrl: 'https://www.linkedin.com/in/biplab-jha/',
   },
   {
-    name: 'SOUMEE DEY',
-    designation: 'Website Manager + Graphics',
+    name: 'SOUMEE BHAUMIK',
+    designation: 'Art Manager',
     imageSrc: '/images/CoreTeam/Soumee.JPG',
     bio: '',
     linkedinUrl: '',

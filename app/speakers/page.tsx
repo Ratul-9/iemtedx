@@ -276,7 +276,7 @@ export default function SpeakersPage() {
         </div>
 
         {/* Speakers Grid */}
-        <ParallaxSection className={`transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+        <ParallaxSection className={`transition-all duration-1500 pb-40 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="relative">
             <div className="flex items-center mb-12">
               <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-red-500 rounded-full"></div>
@@ -302,22 +302,7 @@ export default function SpeakersPage() {
         </ParallaxSection>
 
         {/* Call to Action Section */}
-        <div className={`text-center py-20 transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-200/50">
-              <h3 className="text-3xl font-heading font-light text-gray-800 mb-4">
-                Interested in Speaking?
-              </h3>
-              <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                Share your expertise with our audience. Join our roster of distinguished speakers.
-              </p>
-              <button className="bg-gradient-to-r from-red-600 to-orange-700 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
-                Apply Now
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
       
       <Footer />

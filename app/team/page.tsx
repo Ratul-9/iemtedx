@@ -490,7 +490,7 @@ export default function Team() {
         </ParallaxSection>
 
         {/* Core Team Section (now with Parallax for consistency) */}
-        <ParallaxSection className={`core-team transition-all duration-1500 mb-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+        <ParallaxSection className={`core-team transition-all duration-1500 mb-20 pb-60 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="relative">
             <div className="flex items-center mb-12">
               <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full"></div>
