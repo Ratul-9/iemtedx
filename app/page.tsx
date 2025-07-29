@@ -46,6 +46,8 @@ export default function Home() {
           <Image
             src={imageList[currentIndex]}
             alt="Main Visual"
+            width={10}
+            height={10}
             className="w-full h-full object-cover transition-opacity duration-700"
           >
           </Image>
@@ -174,6 +176,8 @@ export default function Home() {
           <Image
             src="/images/venue/venue-map.png"
             alt="Venue Map"
+            width={28}
+            height={20}
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
         </div>
