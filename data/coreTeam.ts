@@ -174,7 +174,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Dipayan Dhar',
     designation: 'Broadcasting Manager',
     imageSrc: '/images/CoreTeam/Dipayan Dhar.jpg',
-    bio: 'I am Dipayan Dhar',
+    bio: 'Dipayan Dhar is a multidisciplinary creative professional and a B.Tech student at IEM. He specializes in filmmaking, photography, and visual storytelling, with a focus on emotionally resonant and culturally rooted narratives. His work spans short films, cinematic reels, and community-driven visual campaigns. Known for his ability to blend concept, craft, and execution, he brings depth and originality to every project he undertakes.',
     linkedinUrl: '',
   }
   
