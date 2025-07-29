@@ -524,22 +524,7 @@ export default function Team() {
         </ParallaxSection>
 
         {/* Call to Action Section (enhanced design with better gradient and hover) */}
-        <div className={`text-center py-20 transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-200/50">
-              <h3 className="text-3xl font-heading font-light text-gray-800 mb-4">
-                Ready to Join Our Journey?
-              </h3>
-              <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                We&apos;re always looking for passionate individuals to join our mission of innovation and excellence.
-              </p>
-              <button className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
-                Get In Touch
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
       
       <Footer />
