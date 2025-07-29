@@ -108,8 +108,6 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
                 <Image
                   src={member.imageSrc ?? '/images/Defualt.jpg'} 
                   alt={member.name}
-                  width={24}
-                  height={24}
                   className="w-24 h-24 rounded-full border-4 border-white/30 shadow-lg object-cover"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -492,7 +490,7 @@ export default function Team() {
         </ParallaxSection>
 
         {/* Core Team Section (now with Parallax for consistency) */}
-        <ParallaxSection className={`core-team transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+        <ParallaxSection className={`core-team transition-all duration-1500 mb-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="relative">
             <div className="flex items-center mb-12">
               <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full"></div>
@@ -505,7 +503,7 @@ export default function Team() {
 
             {/* Filter Buttons (enhanced styling) */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center pb-20">
               {teamMembers.length > 0 ? (
                 teamMembers.map((member, index) => (
                   <TeamMemberCardWrapper
@@ -523,7 +521,7 @@ export default function Team() {
           </div>
         </ParallaxSection>
 
-        {/* Call to Action Section (enhanced design with better gradient and hover) */}
+
         
       </div>
       

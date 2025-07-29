@@ -36,7 +36,7 @@ export const ChiefAdvisors: Faculty[] = [
 
 export const FacultCoordinators: Faculty[] = [
     {
-        name: 'Bonani Roychoudhury',
+        name: 'Bonani Chakroborty',
         designation: '',
         imageSrc: '/images/FacultyCoordinators/Bonani Chakraborty.jpg',
         bio: '',
@@ -44,7 +44,7 @@ export const FacultCoordinators: Faculty[] = [
     },
     {
         name: 'Atreyee Chaudhari',
-        designation: 'Technical And Research Assistant(IEM)',
+        designation: ' ',
         imageSrc: '/images/FacultyCoordinators/Atreyee Chaudhari.jpg',
         bio: '',
         linkedinUrl: '',
