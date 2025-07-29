@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Speakers } from "@/data/speakerList";
 import Footer from "@/components/footer";
-import { Users, Sparkles, Award, Target, X, Linkedin, Mail, MapPin, Calendar } from 'lucide-react';
+import { Users, X, Mail, MapPin, Calendar } from 'lucide-react';
+import Image from 'next/image';
 
 // Assuming the enhanced SpeakerCard is imported here
 import SpeakerCard from '@/components/speakerCard'; // Update the path if necessary
@@ -126,7 +127,7 @@ const SpeakerSidebar: React.FC<SpeakerSidebarProps> = ({ speaker, isOpen, onClos
             
             <div className="text-center">
               <div className="relative inline-block mb-4">
-                <img 
+                <Image
                   src={speaker.imageSrc} 
                   alt={speaker.name}
                   className="w-24 h-24 rounded-full border-4 border-white/30 shadow-lg object-cover"
@@ -154,9 +155,7 @@ const SpeakerSidebar: React.FC<SpeakerSidebarProps> = ({ speaker, isOpen, onClos
               <h3 className="text-lg font-semibold text-gray-800">Contact Information</h3>
               
               {speaker.linkedinUrl && (
-                <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
-                  <Linkedin className="w-5 h-5 text-blue-600" />
-                  <a 
+                <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">                  <a 
                     href={speaker.linkedinUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"

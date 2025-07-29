@@ -2,8 +2,6 @@
 
 import Image from 'next/image';
 import { X } from 'lucide-react';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
-import Link from 'next/link';
 
 type MemberInfoPopupProps = {
   name: string;
@@ -19,7 +17,6 @@ export default function MemberInfoPopup({
   designation,
   imageSrc,
   bio,
-  linkedinUrl,
   onClose,
 }: MemberInfoPopupProps) {
   return (

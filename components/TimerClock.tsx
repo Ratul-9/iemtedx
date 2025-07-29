@@ -35,7 +35,7 @@ export default function CountdownTimer() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  },);
 
   const boxStyle = "transition-all duration-500 ease-in-out transform hover:scale-105 bg-white/10 backdrop-blur-md shadow-xl rounded-xl px-4 py-2 border border-white/20";
 

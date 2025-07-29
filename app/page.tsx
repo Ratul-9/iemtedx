@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import Footer from "@/components/footer";
 import SlantedCard from "@/components/slantedCard";
+import Image from "next/image";
 
 const imageList = [
   "/images/Defualt.jpg",
@@ -42,11 +43,12 @@ export default function Home() {
         bg-gray-200 overflow-hidden rounded-lg relative
       "
         >
-          <img
+          <Image
             src={imageList[currentIndex]}
             alt="Main Visual"
             className="w-full h-full object-cover transition-opacity duration-700"
-          />
+          >
+          </Image>
           <button
             onClick={nextImage}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow-lg"
@@ -169,7 +171,7 @@ export default function Home() {
         </h2>
 
         <div className="w-full">
-          <img
+          <Image
             src="/images/venue/venue-map.png"
             alt="Venue Map"
             className="w-full h-auto object-cover rounded-lg shadow-lg"

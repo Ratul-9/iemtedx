@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import MemberInfoPopup from './MemberInfoPopup';
-import { Linkedin, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 type TeamMemberCardProps = {
   name: string;
@@ -58,7 +58,6 @@ export default function TeamMemberCard({
         {/* LinkedIn icon (optional) */}
         {linkedinUrl && (
           <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <Linkedin className="w-4 h-4 text-[#0077B5]" />
           </div>
         )}
       </div>

@@ -4,7 +4,8 @@ import { teamMembers } from "@/data/coreTeam";
 import TeamMemberCard from "@/components/MemberCard";
 import { FacultCoordinators, ChiefAdvisors, Patron } from "@/data/facultyCoordinators";
 import Footer from "@/components/footer";
-import { Users, Sparkles, Award, Target, X, Linkedin, Mail, MapPin, Calendar } from 'lucide-react';
+import { Users,  X, Mail, MapPin, Calendar } from 'lucide-react';
+import Image from 'next/image';
 
 interface FloatingElementProps {
   children: React.ReactNode;
@@ -104,8 +105,8 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
             
             <div className="text-center">
               <div className="relative inline-block mb-4">
-                <img 
-                  src={member.imageSrc} 
+                <Image
+                  src={member.imageSrc ?? '/images/Defualt.jpg'} 
                   alt={member.name}
                   className="w-24 h-24 rounded-full border-4 border-white/30 shadow-lg object-cover"
                 />
@@ -135,7 +136,6 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
               
               {member.linkedinUrl && (
                 <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
-                  <Linkedin className="w-5 h-5 text-blue-600" />
                   <a 
                     href={member.linkedinUrl} 
                     target="_blank" 

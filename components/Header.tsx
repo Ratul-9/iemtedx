@@ -9,7 +9,7 @@ export default function Header() {
     <header className="w-full bg-black text-[#E62B1E] sticky z-50">
       <div className="max-w-7xl flex justify-between items-center gap-4 px-6">
 
-        <a href="/">
+        <Link href="/">
           <div className="flex items-center">
             <Image
               src="/images/logo/TED Event Logo.png"
@@ -21,7 +21,7 @@ export default function Header() {
             />
           </div>
 
-        </a>
+        </Link>
         {/* Hmaba */}
 
         {/* CENTER: Navbar */}
