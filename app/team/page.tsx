@@ -5,7 +5,6 @@ import TeamMemberCard from "@/components/MemberCard";
 import { FacultCoordinators, ChiefAdvisors, Patron } from "@/data/facultyCoordinators";
 import Footer from "@/components/footer";
 import { Users,  X, Mail, MapPin, Calendar } from 'lucide-react';
-import Image from 'next/image';
 
 interface FloatingElementProps {
   children: React.ReactNode;
