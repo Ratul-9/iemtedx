@@ -1,6 +1,7 @@
 // @/components/SpeakerCard.tsx
 import React from 'react';
 import { Users } from 'lucide-react';
+import Image from 'next/image';
 
 interface Speaker {
   name: string;
@@ -43,9 +44,11 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({
         <div className="absolute -inset-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
         <div className="relative bg-white/90 backdrop-blur-sm rounded-xl p-1 shadow-lg border border-gray-200/50 group-hover:shadow-2xl transition-all duration-300">
           <div className="h-64 relative w-full overflow-hidden rounded-t-xl">
-            <img
+            <Image
               src={speaker.imageSrc}
               alt={speaker.name}
+              width={24}
+              height={24}
               className="object-cover w-full h-full"
             />
           </div>

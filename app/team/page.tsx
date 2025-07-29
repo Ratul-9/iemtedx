@@ -27,30 +27,30 @@ const FloatingElement: React.FC<FloatingElementProps> = ({ children, delay = 0, 
   );
 };
 
-interface AnimatedCounterProps {
-  end: number;
-  duration?: number;
-  suffix?: string;
-}
+// interface AnimatedCounterProps {
+//   end: number;
+//   duration?: number;
+//   suffix?: string;
+// }
 
-const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000, suffix = "" }) => {
-  const [count, setCount] = useState<number>(0);
+// const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000, suffix = "" }) => {
+//   const [count, setCount] = useState<number>(0);
 
-  useEffect(() => {
-    let startTime: number | undefined;
-    const animate = (currentTime: number): void => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      setCount(Math.floor(progress * end));
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-    requestAnimationFrame(animate);
-  }, [end, duration]);
+//   useEffect(() => {
+//     let startTime: number | undefined;
+//     const animate = (currentTime: number): void => {
+//       if (!startTime) startTime = currentTime;
+//       const progress = Math.min((currentTime - startTime) / duration, 1);
+//       setCount(Math.floor(progress * end));
+//       if (progress < 1) 
+//         requestAnimationFrame(animate);
+//       }
+//     };
+//     requestAnimationFrame(animate);
+//   }, [end, duration]);
 
-  return <span>{count}{suffix}</span>;
-};
+//   return <span>{count}{suffix}</span>;
+// };
 
 interface ParallaxSectionProps {
   children: React.ReactNode;
@@ -108,6 +108,8 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
                 <Image
                   src={member.imageSrc ?? '/images/Defualt.jpg'} 
                   alt={member.name}
+                  width={24}
+                  height={24}
                   className="w-24 h-24 rounded-full border-4 border-white/30 shadow-lg object-cover"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -265,7 +267,6 @@ const TeamMemberCardWrapper: React.FC<TeamMemberCardWrapperProps> = ({
 
 export default function Team() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('all');
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -282,12 +283,6 @@ export default function Team() {
     setSidebarOpen(false);
     setTimeout(() => setSelectedMember(null), 300); // Wait for animation to complete
   };
-
-  // Filtering logic (updated: filter based on designation only, removed category reference)
-  const filteredTeamMembers = teamMembers.filter(member => {
-    if (activeFilter === 'all') return true;
-    return member.designation.toLowerCase().includes(activeFilter);
-  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
@@ -511,8 +506,8 @@ export default function Team() {
             {/* Filter Buttons (enhanced styling) */}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
-              {filteredTeamMembers.length > 0 ? (
-                filteredTeamMembers.map((member, index) => (
+              {teamMembers.length > 0 ? (
+                teamMembers.map((member, index) => (
                   <TeamMemberCardWrapper
                     key={index}
                     member={member}
@@ -537,7 +532,7 @@ export default function Team() {
                 Ready to Join Our Journey?
               </h3>
               <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                We're always looking for passionate individuals to join our mission of innovation and excellence.
+                We&apos;re always looking for passionate individuals to join our mission of innovation and excellence.
               </p>
               <button className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg hover:shadow-blue-600/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
                 Get In Touch
