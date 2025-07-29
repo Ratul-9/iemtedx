@@ -26,7 +26,7 @@ export const ChiefAdvisors: Faculty[] = [
         linkedinUrl: '',
     },
     {
-        name: 'Samapika Das Biswas',
+        name: ' Prof. Dr. Samapika Das Biswas',
         designation: 'Assistant HOD BSH Department IEM SaltLake',
         imageSrc: '/images/Defualt.jpg',
         bio: '',
@@ -36,15 +36,15 @@ export const ChiefAdvisors: Faculty[] = [
 
 export const FacultCoordinators: Faculty[] = [
     {
-        name: 'Bonani Chakroborty',
-        designation: '',
+        name: 'Prof. Dr. Bonani Chakrabarty',
+        designation: 'Curator',
         imageSrc: '/images/FacultyCoordinators/Bonani Chakraborty.jpg',
         bio: '',
         linkedinUrl: '',
     },
     {
-        name: 'Atreyee Chaudhari',
-        designation: ' ',
+        name: 'Prof. Atreyee Chaudhari',
+        designation: 'Curator',
         imageSrc: '/images/FacultyCoordinators/Atreyee Chaudhari.jpg',
         bio: '',
         linkedinUrl: '',

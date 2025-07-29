@@ -19,7 +19,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'PARAMARTHA GHOSH',
     designation: 'Student Co Head + Production Head',
-    imageSrc: '/images/Defualt.jpg',
+    imageSrc: '/images/CoreTeam/Paramartha Ghosh.jpg',
     bio: '',
     linkedinUrl: '',
   },
@@ -67,7 +67,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'SAURYA DAS',
-    designation: 'Broadcasting Director (Photography+ Videography)',
+    designation: 'Broadcasting Director',
     imageSrc: '/images/CoreTeam/Saurya Das (2).JPG',
     bio: '',
     linkedinUrl: '',
@@ -131,7 +131,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'BIPLAB KUMAR JHA',
     designation: 'Budgeting Manager',
-    imageSrc: '/images/Defualt.jpg',
+    imageSrc: '/images/CoreTeam/Biplab Kumar Jha.jpg',
     bio: 'Biplab Kumar Jha is a Computer Science and Engineering student with a growing expertise in Artificial Intelligence and a passion for building meaningful tech solutions. An articulate speaker and active presence in debates and Model United Nations, he blends technical innovation with persuasive communication. With a vision to drive change through AI, Biplab thrives at the intersection of technology, leadership, and impact.',
     linkedinUrl: 'https://www.linkedin.com/in/biplab-jha/',
   },
@@ -145,7 +145,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'RIITOM MODAK',
     designation: 'Collaboration Manager',
-    imageSrc: '/images/Defualt.jpg',
+    imageSrc: '/images/CoreTeam/Rittom Modak.JPG',
     bio: 'Riitom Modak is a dedicated and forward-thinking B.Tech student at the Institute of Engineering and Management (IEM), currently pursuing a degree in Computer Science and Business Systems (CSBS). With a strong foundation in computer science and a growing expertise in Large Language Model (LLM) engineering, he is deeply engaged in exploring the intersection of advanced technologies and real-world applications. His academic interests are complemented by a proactive approach to continuous learning, particularly in software development, AI, and emerging tech trends. Outside the classroom, Riitom is a passionate photographer and traveler, committed to broadening his horizons through diverse experiences and creative expression.',
     linkedinUrl: 'https://www.linkedin.com/in/riitom-modak-b018a131a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
   },
@@ -166,10 +166,17 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'DEBJIT DEY',
     designation: 'Videography Manager',
-    imageSrc: '/images/Defualt.jpg',
+    imageSrc: '/images/CoreTeam/Debjit Dey.jpg',
     bio: 'Debjit Dey is a Computer Science and Engineering student at IEM Kolkata, with a strong foundation in programming, content planning, and graphic and video editing. A skilled creator and communicator, he bridges creativity and technology to craft transformative audience experiences.',
     linkedinUrl: 'www.linkedin.com/in/debjitdey07',
   },
+  {
+    name: 'Dipayan Dhar',
+    designation: 'Broadcasting Manager',
+    imageSrc: '/images/CoreTeam/Dipayan Dhar.jpg',
+    bio: 'I am Dipayan Dhar',
+    linkedinUrl: '',
+  }
   
 
 ];

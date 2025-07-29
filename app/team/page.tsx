@@ -105,8 +105,8 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
             
             <div className="text-center">
               <div className="relative inline-block mb-4">
-                <Image
-                  src={member.imageSrc ?? '/images/Defualt.jpg'} 
+                <img
+                  src={member.imageSrc || '/images/Defualt.jpg'} 
                   alt={member.name}
                   className="w-24 h-24 rounded-full border-4 border-white/30 shadow-lg object-cover"
                 />
