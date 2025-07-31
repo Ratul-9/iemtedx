@@ -46,8 +46,8 @@ export default function Home() {
           <Image
             src={imageList[currentIndex]}
             alt="Main Visual"
-            width={10}
-            height={10}
+            width={150}
+            height={150}
             className="w-full h-full object-cover transition-opacity duration-700"
           >
           </Image>
@@ -133,7 +133,7 @@ export default function Home() {
         {/* MISSION - FROM LEFT */}
         <SlantedCard
           title="Mission"
-          content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet"
+          content="TEDxIEM Salt Lake is a celebration of ideas, innovation, and inspiration born from the rich academic and cultural legacy of the Institute of Engineering & Management, Salt Lake—one of Eastern India’s premier educational institutions. Rooted in IEM’s decades-long commitment to excellence in education, research, and societal impact, this independently organized TEDx event is designed to amplify voices that spark meaningful change. We aim to bring together a diverse array of thinkers, creators, and changemakers from across disciplines to share powerful stories and fresh perspectives. Guided by TED’s global ethos of “ideas worth spreading,” TEDxIEM Salt Lake seeks to be a platform where tradition meets modernity, knowledge meets action, and local brilliance meets global relevance—all in the vibrant spirit of Kolkata."
           from="left"
           bgColor="bg-black shadow-lg"
           clipClass="clip-left-bold"
@@ -144,7 +144,7 @@ export default function Home() {
         {/* VISION - FROM RIGHT */}
         <SlantedCard
           title="Vision"
-          content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit ametLorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos perferendis modi cupiditate aperiam. Lorem ipsum dolor sit amet..."
+          content="TEDxIEM Salt Lake envisions a world where transformative ideas transcend boundaries—intellectual, cultural, and generational—to spark lasting impact. We aspire to establish a vibrant platform that not only celebrates knowledge and creativity but also fosters a spirit of critical inquiry, empathy, and innovation within and beyond the academic community. Rooted in the legacy of the Institute of Engineering & Management, Salt Lake, we aim to inspire the youth, engage thought leaders, and empower every voice to participate in conversations that shape the future. Through carefully curated talks and performances, TEDxIEM Salt Lake seeks to become a catalyst for dialogue, collaboration, and visionary thinking that uplifts communities and contributes to a more thoughtful, inclusive, and progressive world."
           from="right"
           bgColor="bg-[#E62B1E] shadow-xl"
           clipClass="clip-right-bold"
@@ -155,7 +155,7 @@ export default function Home() {
         {/* GOALS - FROM LEFT */}
         <SlantedCard
           title="Goals"
-          content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui sus consequatur assumenda quam aliquid. Lorem ipsum dolor sit ametLorem ipsum dolor sit amet consectetur adipisicing elit. Sit itaque natus necessitatibus, voluptas explicabo. Lorem ipsum dolor sit amet..."
+          content="The goal of TEDxIEM Salt Lake is to create a dynamic platform that celebrates and amplifies powerful ideas capable of inspiring change at both local and global levels. Rooted in the academic legacy of the Institute of Engineering & Management, Salt Lake, this independently organized TEDx event aims to foster interdisciplinary dialogue, highlight intellectual and creative excellence, and provide a voice to youth leaders, visionaries, and community change-makers. By bridging the rich cultural heritage of Kolkata with TED’s global vision, TEDxIEM Salt Lake seeks to cultivate curiosity, promote lifelong learning, and encourage meaningful conversations that drive innovation, empathy, and social responsibility across generations."
           from="left"
           bgColor="bg-black shadow-lg"
           clipClass="clip-left-bold"
