@@ -2,51 +2,51 @@
 import { useEffect, useState } from "react";
 import { ChevronRight, MapPin, Calendar, Clock } from "lucide-react";
 import Footer from "@/components/footer";
+import CountdownTimer from "@/components/TimerClock";
 
 const imageList = [
-  "/images/Defualt.jpg",
-  "/images/Defualt.jpg", 
-  "/images/Defualt.jpg",
+  "/images/MoodBoard1.png",
+  "/images/MoodBoard2.png", 
+  "/images/MoodBoard3.png",
 ];
 
 // Mock CountdownTimer component
-const CountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 21,
-    hours: 12,
-    minutes: 30,
-    seconds: 45
-  });
+// const CountdownTimer = () => {
+//   const [timeLeft, setTimeLeft] = useState({
+//     days: 21,
+//     hours: 12,
+//     minutes: 30,
+//     seconds: 45
+//   });
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => ({
-        ...prev,
-        seconds: prev.seconds > 0 ? prev.seconds - 1 : 59
-      }));
-    }, 1000);
+//   useEffect(() => {
+//     const timer = setInterval(() => {
+//       setTimeLeft(prev => ({
+//         ...prev,
+//         seconds: prev.seconds > 0 ? prev.seconds - 1 : 59
+//       }));
+//     }, 1000);
 
-    return () => clearInterval(timer);
-  }, []);
+//     return () => clearInterval(timer);
+//   }, []);
 
-  return (
-    <div className="text-center">
-      <h3 className="text-xl font-semibold mb-4">Event Countdown</h3>
-      <div className="grid grid-cols-4 gap-4">
-        {Object.entries(timeLeft).map(([unit, value]) => (
-          <div key={unit} className="text-center">
-            <div className="text-2xl font-bold">{value}</div>
-            <div className="text-sm capitalize">{unit}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="text-center">
+//       <h3 className="text-xl font-semibold mb-4">Event Countdown</h3>
+//       <div className="grid grid-cols-4 gap-4">
+//         {Object.entries(timeLeft).map(([unit, value]) => (
+//           <div key={unit} className="text-center">
+//             <div className="text-2xl font-bold">{value}</div>
+//             <div className="text-sm capitalize">{unit}</div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
 
 
-// Map Widget Component
 const MapWidget = () => {
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
@@ -66,16 +66,16 @@ const MapWidget = () => {
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-4 h-4" />
-                <span>9:00 AM - 6:00 PM</span>
+                {/* <span>9:00 AM - 6:00 PM</span> */}
               </div>
             </div>
           </div>
         </div>
         
         {/* Mock map markers */}
-        <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-red-500 rounded-full shadow-lg animate-pulse"></div>
+        {/* <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-red-500 rounded-full shadow-lg animate-pulse"></div>
         <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-blue-500 rounded-full shadow-lg"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-3 h-3 bg-green-500 rounded-full shadow-lg"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-3 h-3 bg-green-500 rounded-full shadow-lg"></div> */}
       </div>
       
       <div className="p-6 bg-white">
@@ -93,7 +93,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % imageList.length);
-    }, 2000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -241,11 +241,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-3 text-lg">
-                  <p className="flex items-center gap-3">
+                  <p className="flex items-center gap-3 text-amber-950 font-bold">
                     <span className="w-2 h-2 bg-red-600 rounded-full"></span>
                     <strong>Date:</strong> August 22, 2025
                   </p>
-                  <p className="flex items-center gap-3">
+                  <p className="flex items-center gap-3 text-amber-950 font-bold">
                     <span className="w-2 h-2 bg-red-600 rounded-full"></span>
                     <strong>Time:</strong> 9:00 AM - 6:00 PM
                   </p>
@@ -263,9 +263,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-3 text-lg">
-                  <p className="flex items-start gap-3">
+                  <p className="flex items-start gap-3 font-bold text-amber-950">
                     <span className="w-2 h-2 bg-gray-900 rounded-full mt-2"></span>
-                    <span>Institute of Engineering & Management<br />Salt Lake, Kolkata, West Bengal</span>
+                    <span>10th Floor, Godrej Genesis Building<br /> Institute of Engineering and Management, Salt Lake, Kolkata, West Bengal</span>
                   </p>
                 </div>
               </div>

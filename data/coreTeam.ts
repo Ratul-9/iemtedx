@@ -170,14 +170,4 @@ export const teamMembers: TeamMember[] = [
     bio: 'Dipayan Dhar is a multidisciplinary creative professional and a B.Tech student at IEM. He specializes in filmmaking, photography, and visual storytelling, with a focus on emotionally resonant and culturally rooted narratives. His work spans short films, cinematic reels, and community-driven visual campaigns. Known for his ability to blend concept, craft, and execution, he brings depth and originality to every project he undertakes.',
     linkedinUrl: '',
   },
-  {
-    name: 'RATUL MUKHERJEE ',
-    designation: 'Website Director',
-    imageSrc: '/images/Defualt.jpg',
-    bio: '',
-    linkedinUrl: '',
-  },
-
-  
-
 ];
