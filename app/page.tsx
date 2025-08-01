@@ -166,7 +166,7 @@ export default function Home() {
                   Mission
                 </h2>
                 <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-light">
-                  TEDxIEM Salt Lake is a celebration of ideas, innovation, and inspiration born from the rich academic and cultural legacy of the Institute of Engineering & Management, Salt Lake—one of Eastern India's premier educational institutions. Rooted in IEM's decades-long commitment to excellence in education, research, and societal impact, this independently organized TEDx event is designed to amplify voices that spark meaningful change. We aim to bring together a diverse array of thinkers, creators, and changemakers from across disciplines to share powerful stories and fresh perspectives. Guided by TED's global ethos of "ideas worth spreading," TEDxIEM Salt Lake seeks to be a platform where tradition meets modernity, knowledge meets action, and local brilliance meets global relevance—all in the vibrant spirit of Kolkata.
+                  TEDxIEM Salt Lake is a celebration of ideas, innovation, and inspiration born from the rich academic and cultural legacy of the Institute of Engineering &amp; Management, Salt Lake—one of Eastern India&rsquo;s premier educational institutions. Rooted in IEM&rsquo;s decades-long commitment to excellence in education, research, and societal impact, this independently organized TEDx event is designed to amplify voices that spark meaningful change. We aim to bring together a diverse array of thinkers, creators, and changemakers from across disciplines to share powerful stories and fresh perspectives. Guided by TED&rsquo;s global ethos of &ldquo;ideas worth spreading,&rdquo; TEDxIEM Salt Lake seeks to be a platform where tradition meets modernity, knowledge meets action, and local brilliance meets global relevance—all in the vibrant spirit of Kolkata.
                 </p>
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function Home() {
                   Vision
                 </h2>
                 <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-light text-right">
-                  TEDxIEM Salt Lake envisions a world where transformative ideas transcend boundaries—intellectual, cultural, and generational—to spark lasting impact. We aspire to establish a vibrant platform that not only celebrates knowledge and creativity but also fosters a spirit of critical inquiry, empathy, and innovation within and beyond the academic community. Rooted in the legacy of the Institute of Engineering & Management, Salt Lake, we aim to inspire the youth, engage thought leaders, and empower every voice to participate in conversations that shape the future. Through carefully curated talks and performances, TEDxIEM Salt Lake seeks to become a catalyst for dialogue, collaboration, and visionary thinking that uplifts communities and contributes to a more thoughtful, inclusive, and progressive world.
+                  TEDxIEM Salt Lake envisions a world where transformative ideas transcend boundaries—intellectual, cultural, and generational—to spark lasting impact. We aspire to establish a vibrant platform that not only celebrates knowledge and creativity but also fosters a spirit of critical inquiry, empathy, and innovation within and beyond the academic community. Rooted in the legacy of the Institute of Engineering &amp; Management, Salt Lake, we aim to inspire the youth, engage thought leaders, and empower every voice to participate in conversations that shape the future. Through carefully curated talks and performances, TEDxIEM Salt Lake seeks to become a catalyst for dialogue, collaboration, and visionary thinking that uplifts communities and contributes to a more thoughtful, inclusive, and progressive world.
                 </p>
               </div>
             </div>
@@ -206,12 +206,11 @@ export default function Home() {
                   Goals
                 </h2>
                 <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-light">
-                  The goal of TEDxIEM Salt Lake is to create a dynamic platform that celebrates and amplifies powerful ideas capable of inspiring change at both local and global levels. Rooted in the academic legacy of the Institute of Engineering & Management, Salt Lake, this independently organized TEDx event aims to foster interdisciplinary dialogue, highlight intellectual and creative excellence, and provide a voice to youth leaders, visionaries, and community change-makers. By bridging the rich cultural heritage of Kolkata with TED's global vision, TEDxIEM Salt Lake seeks to cultivate curiosity, promote lifelong learning, and encourage meaningful conversations that drive innovation, empathy, and social responsibility across generations.
+                  The goal of TEDxIEM Salt Lake is to create a dynamic platform that celebrates and amplifies powerful ideas capable of inspiring change at both local and global levels. Rooted in the academic legacy of the Institute of Engineering &amp; Management, Salt Lake, this independently organized TEDx event aims to foster interdisciplinary dialogue, highlight intellectual and creative excellence, and provide a voice to youth leaders, visionaries, and community change-makers. By bridging the rich cultural heritage of Kolkata with TED&rsquo;s global vision, TEDxIEM Salt Lake seeks to cultivate curiosity, promote lifelong learning, and encourage meaningful conversations that drive innovation, empathy, and social responsibility across generations.
                 </p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -223,7 +222,7 @@ export default function Home() {
               When and Where?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Join us at the prestigious Institute of Engineering & Management, Salt Lake for an unforgettable day of ideas worth spreading.
+              Join us at the prestigious Institute of Engineering &amp; Management, Salt Lake for an unforgettable day of ideas worth spreading.
             </p>
           </div>
 
@@ -236,7 +235,7 @@ export default function Home() {
                     <Calendar className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Date & Time</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">Date &amp; Time</h3>
                     <p className="text-gray-600">Mark your calendar</p>
                   </div>
                 </div>
