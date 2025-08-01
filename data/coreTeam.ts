@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'SOHAM DEY',
     designation: 'Student Coordinator + Production Manager',
-    imageSrc: '/images/Defualt.jpg',
+    imageSrc: '/images/CoreTeam/Soham Dey.jpg',
     bio: 'Soham Dey is a second-year B.Tech student at IEM Salt Lake, specializing in Computer Science & Engineering (Core). A passionate football enthusiast, Soham not only enjoys watching the game but also actively plays on the field whenever he gets the chance. His love for the sport mirrors his mindset—strategic, quick-thinking, and team-oriented. Alongside his academic pursuits, Soham is known for his strong problem-solving skills, making him adept at tackling both real-world challenges and technical puzzles. Whether it’s a coding bug or a last-minute goal opportunity, Soham thrives under pressure and brings energy and precision to everything he does.',
     linkedinUrl: '',
   },
