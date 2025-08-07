@@ -97,13 +97,6 @@ export default function Home() {
   };
 
   // Reset auto-scroll on user interaction, pause for 5 seconds then restart
-  const resetAutoScroll = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-
-    setTimeout(() => {
-      startAutoScroll();
-    }, 10000); // Wait 5 seconds before restarting auto-scroll
-  };
 
   // Initialize auto-scroll once on mount
   useEffect(() => {
