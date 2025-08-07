@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { teamMembers } from "@/data/coreTeam";
+import { studentCoHeads, studentCoordinators, directors } from "@/data/coreTeam";
 import TeamMemberCard from "@/components/MemberCard";
 import { FacultCoordinators, ChiefAdvisors, Patron } from "@/data/facultyCoordinators";
 import Footer from "@/components/footer";
@@ -25,31 +25,6 @@ const FloatingElement: React.FC<FloatingElementProps> = ({ children, delay = 0, 
     </div>
   );
 };
-
-// interface AnimatedCounterProps {
-//   end: number;
-//   duration?: number;
-//   suffix?: string;
-// }
-
-// const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000, suffix = "" }) => {
-//   const [count, setCount] = useState<number>(0);
-
-//   useEffect(() => {
-//     let startTime: number | undefined;
-//     const animate = (currentTime: number): void => {
-//       if (!startTime) startTime = currentTime;
-//       const progress = Math.min((currentTime - startTime) / duration, 1);
-//       setCount(Math.floor(progress * end));
-//       if (progress < 1) 
-//         requestAnimationFrame(animate);
-//       }
-//     };
-//     requestAnimationFrame(animate);
-//   }, [end, duration]);
-
-//   return <span>{count}{suffix}</span>;
-// };
 
 interface ParallaxSectionProps {
   children: React.ReactNode;
@@ -172,8 +147,6 @@ const TeamMemberSidebar: React.FC<TeamMemberSidebarProps> = ({ member, isOpen, o
                 </div>
               )}
             </div>
-
-            
 
             {/* Action Buttons (enhanced hover effects) */}
             <div className="pt-4 space-y-3">
@@ -306,7 +279,7 @@ export default function Team() {
         </FloatingElement>
       </div>
 
-      <div className="container mx-auto px-4 py-12 space-y-20 relative z-10">
+      <div className="container mx-auto px-4 py-12 space-y-16 relative z-10">
         {/* Hero Section (enhanced typography and spacing) */}
         <div className={`headline text-center transition-all duration-2000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="relative">
@@ -318,9 +291,6 @@ export default function Team() {
           <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto leading-relaxed">
             Passionate innovators driving excellence through creativity and collaboration
           </p>
-          
-          {/* Animated Stats (enhanced hover effects) */}
-          
         </div>
 
         {/* Patron */}
@@ -359,64 +329,10 @@ export default function Team() {
                         <div onClick={(e) => e.stopPropagation()}>
                           <TeamMemberCard 
                             name={coordinator.name} 
-                            designation={coordinator.designation} 
-                            imageSrc={coordinator.imageSrc} 
-                            bio={coordinator.bio || ''} 
-                            linkedinUrl={coordinator.linkedinUrl || ''} 
-                          />
-                        </div>
-                      </div>
-                      {/* Click indicator */}
-                      <div className="absolute top-2 right-2 bg-blue-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Users className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </ParallaxSection>
-        {/* Chief Advisors */}
-        <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <div className="relative">
-            <div className="flex items-center mb-8">
-              <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
-              <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative">
-                Chief Advisors
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              </h3>
-              <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-purple-500 rounded-full"></div>
-            </div>
-            
-            <div className="flex flex-wrap gap-8 font-body justify-center">
-              {ChiefAdvisors.map((coordinator, index) => {
-                const handleCoordinatorClick = (e: React.MouseEvent) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  handleMemberClick(coordinator);
-                };
-
-                return (
-                  <div 
-                    key={index}
-                    className={`transform transition-all duration-700 hover:scale-105 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-                    style={{ 
-                      transitionDelay: `${index * 150 + 300}ms`,
-                      animation: `slideInUp 0.8s ease-out ${index * 0.1 + 0.3}s both`
-                    }}
-                    onClick={handleCoordinatorClick}
-                  >
-                    <div className="relative group">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
-                      <div className="relative">
-                        <div onClick={(e) => e.stopPropagation()}>
-                          <TeamMemberCard 
-                            name={coordinator.name} 
-                            designation={coordinator.designation} 
-                            imageSrc={coordinator.imageSrc} 
-                            bio={coordinator.bio || ''} 
-                            linkedinUrl={coordinator.linkedinUrl || ''} 
+                            designation = {coordinator.designation}
+                            imageSrc={coordinator.imageSrc}
+                            bio={coordinator.bio || ''}
+                            linkedinUrl={coordinator.linkedinUrl || ''}
                           />
                         </div>
                       </div>
@@ -432,128 +348,237 @@ export default function Team() {
           </div>
         </ParallaxSection>
 
-
-        {/* Faculty Coordinators Section */}
-        <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <div className="relative">
-            <div className="flex items-center mb-8">
-              <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
-              <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative">
-                Faculty Coordinators
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              </h3>
-              <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-purple-500 rounded-full"></div>
-            </div>
-            
-            <div className="flex flex-wrap gap-8 font-body justify-center">
-              {FacultCoordinators.map((coordinator, index) => {
-                const handleCoordinatorClick = (e: React.MouseEvent) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  handleMemberClick(coordinator);
-                };
-
-                return (
-                  <div 
-                    key={index}
-                    className={`transform transition-all duration-700 hover:scale-105 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-                    style={{ 
-                      transitionDelay: `${index * 150 + 300}ms`,
-                      animation: `slideInUp 0.8s ease-out ${index * 0.1 + 0.3}s both`
-                    }}
-                    onClick={handleCoordinatorClick}
-                  >
-                    <div className="relative group">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
-                      <div className="relative">
-                        <div onClick={(e) => e.stopPropagation()}>
-                          <TeamMemberCard 
-                            name={coordinator.name} 
-                            designation={coordinator.designation} 
-                            imageSrc={coordinator.imageSrc} 
-                            bio={coordinator.bio || ''} 
-                            linkedinUrl={coordinator.linkedinUrl || ''} 
-                          />
-                        </div>
-                      </div>
-                      {/* Click indicator */}
-                      <div className="absolute top-2 right-2 bg-blue-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Users className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </ParallaxSection>
-
-        {/* Core Team Section (now with Parallax for consistency) */}
-        <ParallaxSection className={`core-team transition-all duration-1500 mb-20 pb-60 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-          <div className="relative">
-            <div className="flex items-center mb-12">
-              <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full"></div>
-              <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative group">
-                Core Team
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-              </h3>
-              <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-pink-500 rounded-full"></div>
-            </div>
-
-            {/* Filter Buttons (enhanced styling) */}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center pb-20">
-              {teamMembers.length > 0 ? (
-                teamMembers.map((member, index) => (
-                  <TeamMemberCardWrapper
-                    key={index}
-                    member={member}
-                    index={index}
-                    onClick={handleMemberClick}
-                    isVisible={isVisible}
-                  />
-                ))
-              ) : (
-                <p className="col-span-full text-center text-gray-600">No members found in this category.</p>
-              )}
-            </div>
-          </div>
-        </ParallaxSection>
-
-
+            {/* Chief Advisors */}
+    <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+      <div className="relative">
+        <div className="flex items-center mb-8">
+          <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
+          <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative">
+            Chief Advisors
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          </h3>
+          <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-purple-500 rounded-full"></div>
+        </div>
         
+        <div className="flex flex-wrap gap-8 font-body justify-center">
+          {ChiefAdvisors.map((coordinator, index) => {
+            const handleCoordinatorClick = (e: React.MouseEvent) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleMemberClick(coordinator);
+            };
+
+            return (
+              <div 
+                key={index}
+                className={`transform transition-all duration-700 hover:scale-105 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ 
+                  transitionDelay: `${index * 150 + 300}ms`,
+                  animation: `slideInUp 0.8s ease-out ${index * 0.1 + 0.3}s both`
+                }}
+                onClick={handleCoordinatorClick}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
+                  <div className="relative">
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <TeamMemberCard 
+                        name={coordinator.name} 
+                        designation={coordinator.designation} 
+                        imageSrc={coordinator.imageSrc} 
+                        bio={coordinator.bio || ''} 
+                        linkedinUrl={coordinator.linkedinUrl || ''} 
+                      />
+                    </div>
+                  </div>
+                  {/* Click indicator */}
+                  <div className="absolute top-2 right-2 bg-blue-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Users className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      
-      <Footer />
+    </ParallaxSection>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
+    {/* Faculty Coordinators Section */}
+    <ParallaxSection className={`fac-coords transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+      <div className="relative">
+        <div className="flex items-center mb-8">
+          <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
+          <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative">
+            Faculty Coordinators
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          </h3>
+          <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-purple-500 rounded-full"></div>
+        </div>
         
-        @keyframes slideInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-        
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
-    </div>
-  );
+        <div className="flex flex-wrap gap-8 font-body justify-center">
+          {FacultCoordinators.map((coordinator, index) => {
+            const handleCoordinatorClick = (e: React.MouseEvent) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleMemberClick(coordinator);
+            };
+
+            return (
+              <div 
+                key={index}
+                className={`transform transition-all duration-700 hover:scale-105 cursor-pointer ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ 
+                  transitionDelay: `${index * 150 + 300}ms`,
+                  animation: `slideInUp 0.8s ease-out ${index * 0.1 + 0.3}s both`
+                }}
+                onClick={handleCoordinatorClick}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg"></div>
+                  <div className="relative">
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <TeamMemberCard 
+                        name={coordinator.name} 
+                        designation={coordinator.designation} 
+                        imageSrc={coordinator.imageSrc} 
+                        bio={coordinator.bio || ''} 
+                        linkedinUrl={coordinator.linkedinUrl || ''} 
+                      />
+                    </div>
+                  </div>
+                  {/* Click indicator */}
+                  <div className="absolute top-2 right-2 bg-blue-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Users className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </ParallaxSection>
+
+    {/* Student Co-Heads Section */}
+    <ParallaxSection className={`core-team transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+      <div className="relative">
+        <div className="flex items-center mb-12">
+          <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full"></div>
+          <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative group">
+            Student Co-Heads
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          </h3>
+          <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-pink-500 rounded-full"></div>
+        </div>
+
+        <div className="flex flex-wrap gap-8 justify-center">
+          {studentCoHeads.length > 0 ? (
+            studentCoHeads.map((member, index) => (
+              <TeamMemberCardWrapper
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+                isVisible={isVisible}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-600">No members found in this category.</p>
+          )}
+        </div>
+      </div>
+    </ParallaxSection>
+
+    {/* Student Coordinators Section */}
+    <ParallaxSection className={`core-team transition-all duration-1500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+      <div className="relative">
+        <div className="flex items-center mb-12">
+          <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full"></div>
+          <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative group">
+            Student Coordinators
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          </h3>
+          <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-pink-500 rounded-full"></div>
+        </div>
+
+        <div className="flex flex-wrap gap-8 justify-center">
+          {studentCoordinators.length > 0 ? (
+            studentCoordinators.map((member, index) => (
+              <TeamMemberCardWrapper
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+                isVisible={isVisible}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-600">No members found in this category.</p>
+          )}
+        </div>
+      </div>
+    </ParallaxSection>
+
+    {/* Directors Section */}
+    <ParallaxSection className={`core-team transition-all duration-1500 mb-78 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+      <div className="relative">
+        <div className="flex items-center mb-12">
+          <div className="h-1 flex-1 bg-gradient-to-r from-transparent to-purple-500 rounded-full"></div>
+          <h3 className="text-4xl font-heading font-light mx-8 text-gray-800 relative group">
+            Directors
+            <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+          </h3>
+          <div className="h-1 flex-1 bg-gradient-to-l from-transparent to-pink-500 rounded-full"></div>
+        </div>
+
+        <div className="flex flex-wrap gap-8 justify-center">
+          {directors.length > 0 ? (
+            directors.map((member, index) => (
+              <TeamMemberCardWrapper
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+                isVisible={isVisible}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-600">No members found in this category.</p>
+          )}
+        </div>
+      </div>
+    </ParallaxSection>
+  </div>
+  
+  <Footer />
+
+  <style jsx>{`
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradient 3s ease infinite;
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  `}</style>
+  </div>
+ );
 }

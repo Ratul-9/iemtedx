@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
-import { ChevronRight, MapPin, Calendar, Clock } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { ChevronRight, ChevronLeft, MapPin, Calendar, Clock } from "lucide-react";
 import Footer from "@/components/footer";
 import CountdownTimer from "@/components/TimerClock";
 
@@ -9,43 +9,6 @@ const imageList = [
   "/images/MoodBoard2.png", 
   "/images/MoodBoard3.png",
 ];
-
-// Mock CountdownTimer component
-// const CountdownTimer = () => {
-//   const [timeLeft, setTimeLeft] = useState({
-//     days: 21,
-//     hours: 12,
-//     minutes: 30,
-//     seconds: 45
-//   });
-
-//   useEffect(() => {
-//     const timer = setInterval(() => {
-//       setTimeLeft(prev => ({
-//         ...prev,
-//         seconds: prev.seconds > 0 ? prev.seconds - 1 : 59
-//       }));
-//     }, 1000);
-
-//     return () => clearInterval(timer);
-//   }, []);
-
-//   return (
-//     <div className="text-center">
-//       <h3 className="text-xl font-semibold mb-4">Event Countdown</h3>
-//       <div className="grid grid-cols-4 gap-4">
-//         {Object.entries(timeLeft).map(([unit, value]) => (
-//           <div key={unit} className="text-center">
-//             <div className="text-2xl font-bold">{value}</div>
-//             <div className="text-sm capitalize">{unit}</div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-
 
 const MapWidget = () => {
   return (
@@ -66,16 +29,10 @@ const MapWidget = () => {
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-4 h-4" />
-                {/* <span>9:00 AM - 6:00 PM</span> */}
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Mock map markers */}
-        {/* <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-red-500 rounded-full shadow-lg animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-blue-500 rounded-full shadow-lg"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-3 h-3 bg-green-500 rounded-full shadow-lg"></div> */}
       </div>
       
       <div className="p-6 bg-white">
@@ -89,17 +46,89 @@ const MapWidget = () => {
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Function to advance to next image
+  const nextImage = () => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % imageList.length);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    },3500); // Match with CSS transition duration
+  };
+
+  // Function to go back to previous image
+  const prevImage = () => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
+    setCurrentIndex((prevIndex) =>
+      (prevIndex - 1 + imageList.length) % imageList.length
+    );
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    },3500);
+  };
+
+  // Function to jump to a specific slide
+  const goToSlide = (index: number) => {
+    if (isTransitioning || index === currentIndex) return;
+
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 3500);
+  };
+
+  // Starts or restarts auto-scroll interval
+  const startAutoScroll = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      nextImage();
+    }, 15000); // 5 seconds per slide
+  };
+
+  // Reset auto-scroll on user interaction, pause for 5 seconds then restart
+  const resetAutoScroll = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    setTimeout(() => {
+      startAutoScroll();
+    }, 10000); // Wait 5 seconds before restarting auto-scroll
+  };
+
+  // Initialize auto-scroll once on mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % imageList.length);
-    }, 6000);
+    startAutoScroll();
 
-    return () => clearInterval(interval);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
 
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % imageList.length);
+  // User interaction handlers
+  const handleNextClick = () => {
+    if (isTransitioning) return;
+    nextImage();
+  };
+
+  const handlePrevClick = () => {
+    if (isTransitioning) return;
+    
+    prevImage();
+  };
+
+  const handleDotClick = (index: number) => {
+    if (isTransitioning) return;
+    goToSlide(index);
   };
 
   return (
@@ -107,17 +136,70 @@ export default function Home() {
       {/* Hero Section */}
       <div className="w-screen h-screen grid grid-cols-1 grid-rows-[auto] lg:grid-cols-10 lg:grid-rows-2 gap-4 p-4">
         <div className="col-span-1 lg:col-span-7 row-span-1 lg:row-span-2 bg-gray-200 overflow-hidden rounded-lg relative">
-          <img
-            src={imageList[currentIndex]}
-            alt="Main Visual"
-            className="w-full h-full object-cover transition-opacity duration-700"
-          />
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow-lg"
-          >
-            <ChevronRight size={24} />
-          </button>
+          {/* Carousel Container */}
+          <div className="relative w-full h-full overflow-hidden rounded-lg">
+            {/* Images Container */}
+            <div 
+              className="flex h-full transition-transform duration-800 ease-in-out"
+              style={{ 
+                transform: `translateX(-${currentIndex * (100 / imageList.length)}%)`,
+                width: `${imageList.length * 100}%`
+              }}
+            >
+              {imageList.map((image, index) => (
+                <div key={index} className="h-full flex-shrink-0" style={{ width: `${100 / imageList.length}%` }}>
+                  <img
+                    src={image}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Navigation Arrows */}
+            <button
+              onClick={handlePrevClick}
+              disabled={isTransitioning}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            
+            <button
+              onClick={handleNextClick}
+              disabled={isTransitioning}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+              {imageList.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  disabled={isTransitioning}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'bg-white shadow-lg scale-125' 
+                      : 'bg-white/50 hover:bg-white/70'
+                  } disabled:cursor-not-allowed`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Loading Indicator */}
+            {/* {isTransitioning && (
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center z-20">
+                <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )} */}
+          </div>
         </div>
 
         <div className="group col-span-1 lg:col-span-3 row-span-1 bg-white/90 backdrop-blur-md p-8 rounded-2xl text-black shadow-xl border border-gray-200 transition-all duration-500 ease-in-out hover:bg-black hover:text-black">
