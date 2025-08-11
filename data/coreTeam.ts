@@ -54,7 +54,7 @@ export const directors: TeamMember[] = [
   },
   {
     name: 'ADRIKA KUNDU',
-    designation: 'Guest Reception Director',
+    designation: 'Art Director',
     imageSrc: '/images/CoreTeam/Adrika Kundu.JPG',
     bio: '',
     linkedinUrl: '',
