@@ -27,7 +27,7 @@ export default function TeamMemberCard({
   return (
     <>
       <div
-        onClick={() => setShowPopup(false)}
+        onClick={() => setShowPopup(true)}
         className="group relative flex flex-col w-full h-full items-center text-center p-6 bg-white rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
       >
         {/* TED-style accent */}

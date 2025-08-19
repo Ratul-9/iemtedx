@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { X } from 'lucide-react';
+import { X, Linkedin } from 'lucide-react';
 
 type MemberInfoPopupProps = {
   name: string;
@@ -17,6 +17,7 @@ export default function MemberInfoPopup({
   designation,
   imageSrc,
   bio,
+  linkedinUrl,
   onClose,
 }: MemberInfoPopupProps) {
   return (
@@ -38,8 +39,21 @@ export default function MemberInfoPopup({
           </div>
           <h2 className="text-xl font-bold">{name}</h2>
           <p className="text-sm text-gray-600 mb-4">{designation}</p>
-          <p className="text-sm leading-relaxed text-center">{bio}</p>
+          <p className="text-sm leading-relaxed text-center mb-6">{bio}</p>
           
+          {/* LinkedIn Button */}
+          {linkedinUrl && (
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 bg-[#0077B5] hover:bg-[#005885] text-white px-4 py-2 rounded-lg transition-colors duration-300 font-medium"
+            >
+              <Linkedin className="w-4 h-4" />
+              Connect on LinkedIn
+            </a>
+          )}
 
         </div>
       </div>
