@@ -45,8 +45,8 @@ export const scheduleData: ScheduleItem[] = [
       designation: "Actor",
       imageSrc: "/images/CoreTeam/ankush.jpg"
     },
-    startTime: "11:23 AM",
-    endTime: "11:41 AM",
+    startTime: "11:25 AM",
+    endTime: "11:43 AM",
     duration: "18 minutes"
   },
   {
@@ -58,8 +58,8 @@ export const scheduleData: ScheduleItem[] = [
       designation: "Indian classical slide guitarist",
       imageSrc: "/images/CoreTeam/debashish.jpg"
     },
-    startTime: "11:46 AM",
-    endTime: "12:04 PM",
+    startTime: "11:50 AM",
+    endTime: "12:08 PM",
     duration: "18 minutes"
   },
   {
@@ -71,8 +71,8 @@ export const scheduleData: ScheduleItem[] = [
       designation: "Filmmaker",
       imageSrc: "/images/CoreTeam/ashoke.jpg"
     },
-    startTime: "12:09 PM",
-    endTime: "12:27 PM",
+    startTime: "12:15 PM",
+    endTime: "12:33 PM",
     duration: "18 minutes"
   },
   {
@@ -84,8 +84,8 @@ export const scheduleData: ScheduleItem[] = [
       designation: "Actress",
       imageSrc: "/images/CoreTeam/ritabhari.jpg"
     },
-    startTime: "12:32 PM",
-    endTime: "12:50 PM",
+    startTime: "12:40 PM",
+    endTime: "12:58 PM",
     duration: "18 minutes"
   },
   {
@@ -97,9 +97,18 @@ export const scheduleData: ScheduleItem[] = [
       designation: "Actor",
       imageSrc: "/images/CoreTeam/rwitobroto.jpg"
     },
-    startTime: "12:55 PM",
-    endTime: "1:13 PM",
+    startTime: "1:05 PM",
+    endTime: "1:23 PM",
     duration: "18 minutes"
+  },
+  {
+    id: "vote-of-thanks",
+    type: "ceremony",
+    title: "Vote of Thanks",
+    startTime: "1:25 PM",
+    endTime: "1:40 PM",
+    duration: "15 minutes",
+    description: "Closing ceremony and vote of thanks for TEDx IEM Salt Lake"
   }
 ];
 
