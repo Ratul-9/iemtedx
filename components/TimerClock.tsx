@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 export default function CountdownTimer() {
   const targetDate = new Date('2025-08-22T10:00:00');
 
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
@@ -25,7 +25,7 @@ export default function CountdownTimer() {
     const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, '0');
 
     return { days, hours, minutes, seconds };
-  };
+  }, [targetDate]);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -35,7 +35,7 @@ export default function CountdownTimer() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [calculateTimeLeft]);
 
   return (
     <div className="relative w-full max-w-6xl mx-auto">

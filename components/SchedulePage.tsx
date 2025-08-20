@@ -234,7 +234,7 @@ const SchedulePage: React.FC = () => {
                 Ready to Join <span className="text-[#E62B1E]">The Experience?</span>
               </h2>
               <p className="text-base sm:text-lg text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-                Don't miss this opportunity to be part of an extraordinary day filled with groundbreaking ideas and inspiring stories.
+                Don&apos;t miss this opportunity to be part of an extraordinary day filled with groundbreaking ideas and inspiring stories.
               </p>
               
               <motion.div className="flex flex-col sm:flex-row gap-4 justify-center px-4">

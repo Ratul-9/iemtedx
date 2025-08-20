@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import { ChevronRight, ChevronLeft, MapPin, Calendar, Clock, Play, ArrowRight, Sparkles, Users, Target, Eye, Award } from "lucide-react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useEffect, useState, useRef, useCallback } from "react";
+import { ChevronRight, ChevronLeft, MapPin, Calendar, Clock, Play, ArrowRight, Sparkles, Award } from "lucide-react";
+import { motion, useInView } from "framer-motion";
 import Footer from "@/components/footer";
 import CountdownTimer from "@/components/TimerClock";
 
@@ -115,7 +115,7 @@ export default function Home() {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Function to advance to next image
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     if (isTransitioning) return;
 
     setIsTransitioning(true);
@@ -124,7 +124,7 @@ export default function Home() {
     setTimeout(() => {
       setIsTransitioning(false);
     }, 800);
-  };
+  }, [isTransitioning]);
 
   // Function to go back to previous image
   const prevImage = () => {
@@ -153,13 +153,13 @@ export default function Home() {
   };
 
   // Auto-scroll functionality
-  const startAutoScroll = () => {
+  const startAutoScroll = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
 
     intervalRef.current = setInterval(() => {
       nextImage();
     }, 5000);
-  };
+  }, [nextImage]);
 
   useEffect(() => {
     startAutoScroll();
@@ -167,7 +167,7 @@ export default function Home() {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [startAutoScroll]);
 
   // User interaction handlers
   const handleNextClick = () => {
@@ -430,7 +430,7 @@ export default function Home() {
               </motion.div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">ABOUT IEM</h3>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base px-2">
-                Institute of Engineering & Management, Salt Lake, established as one of Eastern India's 
+                Institute of Engineering & Management, Salt Lake, established as one of Eastern India&apos;s 
                 premier educational institutions, fostering innovation and excellence.
               </p>
             </motion.div>
@@ -453,7 +453,7 @@ export default function Home() {
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">CTRL + ALT + DEL</h3>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base px-2">
                 Our theme encourages us to challenge the boundaries of conventional thought, 
-                reset our perspectives, and redefine what's possible.
+                reset our perspectives, and redefine what&apos;s possible.
               </p>
             </motion.div>
           </div>

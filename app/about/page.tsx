@@ -2,7 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Footer from "@/components/footer";
-import { Play, Award, Users, Target, Globe, ArrowRight, Sparkles, Heart } from "lucide-react";
+import { Play, Award, Users, Target, Globe, Heart } from "lucide-react";
 
 // Enhanced section component with better animations
 interface AnimatedSectionProps {
