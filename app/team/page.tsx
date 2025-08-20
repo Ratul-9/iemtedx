@@ -395,7 +395,7 @@ export default function Team() {
     {
       name: "Trishan Manna",
       role: "Collaboration Director",
-      image: "/images/CoreTeam/trishan(1).jpg",
+      image: "/images/CoreTeam/trishan.jpg",
       about: "Trishan Manna, Collaborator Director at TEDxIEM, is passionate about collaboration, business strategy, finance, and cybersecurity. Currently pursuing his B.Tech in Computer Science and Engineering, he blends technical insight with a flair for organizing events and building partnerships. At TEDxIEM, he strives to create platforms that amplify ideas worth spreading, bringing people, innovation, and vision together. \"Collaboration is not just about working together—it's about creating impact that one alone could never achieve.\" – Trishan Manna",
       bio: "Trishan Manna, Collaborator Director at TEDxIEM, is passionate about collaboration, business strategy, finance, and cybersecurity. Currently pursuing his B.Tech in Computer Science and Engineering, he blends technical insight with a flair for organizing events and building partnerships. At TEDxIEM, he strives to create platforms that amplify ideas worth spreading, bringing people, innovation, and vision together. \"Collaboration is not just about working together—it's about creating impact that one alone could never achieve.\" – Trishan Manna",
       email: "trishan@student.iem.edu.in",
