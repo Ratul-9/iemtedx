@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Clock, Calendar, MapPin, Users, Play } from 'lucide-react';
+import { Calendar, MapPin, Users, Play } from 'lucide-react';
 import { scheduleData, eventInfo, ScheduleItem } from '@/data/scheduleData';
 
 const ScheduleCard: React.FC<{ item: ScheduleItem; index: number }> = ({ item, index }) => {
@@ -21,66 +21,153 @@ const ScheduleCard: React.FC<{ item: ScheduleItem; index: number }> = ({ item, i
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
-      className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-4 md:p-6 hover:border-[#E62B1E]/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(230,43,30,0.2)]"
+      whileHover={{ 
+        scale: 1.02,
+        y: -5,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-4 md:p-6 hover:border-[#E62B1E]/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(230,43,30,0.3)] cursor-pointer overflow-hidden"
     >
-      {/* Time Indicator */}
-      <div className="absolute -left-2 md:-left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 bg-[#E62B1E] rounded-full flex items-center justify-center shadow-lg">
-        <div className="w-2 h-2 md:w-3 md:h-3 bg-white rounded-full"></div>
-      </div>
+      {/* Animated Background Gradient on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#E62B1E]/10 via-transparent to-[#E62B1E]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* Animated Border Glow */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#E62B1E]/20 via-red-500/10 to-[#E62B1E]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+      
+      {/* Enhanced Time Indicator with Animation */}
+      <motion.div 
+        className="absolute -left-2 md:-left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 md:w-8 md:h-8 bg-gradient-to-r from-[#E62B1E] to-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-[0_0_20px_rgba(230,43,30,0.6)]"
+        whileHover={{ 
+          scale: 1.2,
+          boxShadow: "0 0 25px rgba(230, 43, 30, 0.8)",
+          transition: { duration: 0.3 }
+        }}
+      >
+        <motion.div 
+          className="w-2 h-2 md:w-3 md:h-3 bg-white rounded-full"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [1, 0.8, 1]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        />
+      </motion.div>
 
-      <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
-        {/* Speaker Image or Icon */}
-        <div className="flex-shrink-0 mx-auto md:mx-0">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+        {/* Enhanced Speaker Image or Icon with Animation */}
+        <motion.div 
+          className="flex-shrink-0 mx-auto md:mx-0"
+          whileHover={{ 
+            scale: 1.1,
+            rotate: [0, -2, 2, 0],
+            transition: { duration: 0.4 }
+          }}
+        >
           {item.type === 'speaker' && item.speaker ? (
-            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 border-white/20 group-hover:border-[#E62B1E]/50 transition-all duration-300">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 border-white/20 group-hover:border-[#E62B1E]/70 transition-all duration-500 group-hover:shadow-[0_0_15px_rgba(230,43,30,0.4)]">
               <Image
                 src={item.speaker.imageSrc}
                 alt={item.speaker.name}
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
+              {/* Image Overlay Effect */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#E62B1E]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ) : (
-            <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#E62B1E] to-red-700 rounded-xl flex items-center justify-center">
-              <Play className="w-6 h-6 md:w-8 md:h-8 text-white" />
-            </div>
+            <motion.div 
+              className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#E62B1E] to-red-700 rounded-xl flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(230,43,30,0.6)]"
+              whileHover={{
+                backgroundImage: "linear-gradient(135deg, #E62B1E 0%, #FF6B6B 50%, #E62B1E 100%)",
+                transition: { duration: 0.3 }
+              }}
+            >
+              <motion.div
+                animate={{ 
+                  rotate: [0, 360],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity, 
+                  ease: "linear" 
+                }}
+              >
+                <Play className="w-6 h-6 md:w-8 md:h-8 text-white drop-shadow-lg" />
+              </motion.div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
 
-        {/* Content */}
+        {/* Enhanced Content with Text Animations */}
         <div className="flex-1 text-center md:text-left">
-          <div className="flex flex-wrap justify-center md:justify-start items-center gap-2 md:gap-3 mb-2">
-            <span className={`px-2 md:px-3 py-1 rounded-full text-xs font-semibold ${
-              item.type === 'speaker' 
-                ? 'bg-[#E62B1E]/20 text-[#E62B1E] border border-[#E62B1E]/30' 
-                : 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
-            }`}>
+          <motion.div 
+            className="flex flex-wrap justify-center md:justify-start items-center gap-2 md:gap-3 mb-2"
+            whileHover={{ x: 5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <motion.span 
+              className={`px-2 md:px-3 py-1 rounded-full text-xs font-semibold ${
+                item.type === 'speaker' 
+                  ? 'bg-[#E62B1E]/20 text-[#E62B1E] border border-[#E62B1E]/30' 
+                  : 'bg-blue-600/20 text-blue-400 border border-blue-600/30'
+              }`}
+              whileHover={{ 
+                scale: 1.1,
+                backgroundColor: item.type === 'speaker' ? 'rgba(230, 43, 30, 0.4)' : 'rgba(59, 130, 246, 0.4)',
+                borderColor: item.type === 'speaker' ? 'rgba(230, 43, 30, 0.6)' : 'rgba(59, 130, 246, 0.6)'
+              }}
+            >
               {item.type === 'speaker' ? 'Speaker' : 'Ceremony'}
-            </span>
-          </div>
+            </motion.span>
+          </motion.div>
 
-          <h3 className="text-lg md:text-xl font-bold text-white mb-1 group-hover:text-[#E62B1E] transition-colors">
+          <motion.h3 
+            className="text-lg md:text-xl font-bold text-white mb-1 group-hover:text-[#E62B1E] transition-colors"
+            whileHover={{ 
+              x: 8,
+              transition: { type: "spring", stiffness: 300, damping: 20 }
+            }}
+          >
             {item.title}
-          </h3>
+          </motion.h3>
 
           {item.speaker && (
-            <p className="text-gray-400 text-sm mb-2">{item.speaker.designation}</p>
+            <motion.p 
+              className="text-gray-400 text-sm mb-2"
+              whileHover={{ 
+                x: 5,
+                color: "#E62B1E",
+                transition: { type: "spring", stiffness: 200, damping: 15 }
+              }}
+            >
+              {item.speaker.designation}
+            </motion.p>
           )}
 
           {item.description && (
-            <p className="text-gray-300 text-xs md:text-sm mb-3 leading-relaxed">{item.description}</p>
+            <motion.p 
+              className="text-gray-300 text-xs md:text-sm mb-3 leading-relaxed"
+              whileHover={{ 
+                x: 3,
+                color: "#ffffff",
+                transition: { type: "spring", stiffness: 150, damping: 12 }
+              }}
+            >
+              {item.description}
+            </motion.p>
           )}
-        </div>
 
-        {/* Time Display */}
-        <div className="text-center md:text-right flex-shrink-0">
-          <div className="flex items-center justify-center md:justify-end gap-2 text-[#E62B1E] font-semibold mb-1">
-            <Clock className="w-3 h-3 md:w-4 md:h-4" />
-            <span className="text-sm md:text-base">{item.duration}</span>
-          </div>
-          <div className="text-white font-mono text-xs md:text-sm">
-            {item.startTime} - {item.endTime}
-          </div>
+          {/* Animated Progress Bar */}
+          <motion.div 
+            className="w-0 h-0.5 bg-gradient-to-r from-[#E62B1E] to-red-600 mt-2 group-hover:w-full transition-all duration-500 ease-out"
+            initial={{ width: 0 }}
+            whileHover={{ width: "100%" }}
+          />
         </div>
       </div>
 
