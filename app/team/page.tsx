@@ -377,9 +377,9 @@ export default function Team() {
     {
       name: "Debnath Mukherjee",
       role: "Budgeting Director",
-      image: "/images/Defualt.jpg",
-      about: "Debnath Mukherjee is a financial strategist ensuring optimal resource allocation and budget management. He maintains financial transparency and maximizes impact within budget constraints.",
-      bio: "Debnath Mukherjee is a financial strategist ensuring optimal resource allocation and budget management. He maintains financial transparency and maximizes impact within budget constraints.",
+      image: "/images/CoreTeam/saheb.jpg",
+      about: "Debnath Mukherjee, a third-year CSE student specializing in Artificial Intelligence at IEM Kolkata, is a detail-oriented strategist with a strong focus on resource management and sustainable execution. With an excellent track record of managing responsibilities in his previous roles, he brings both experience and reliability to the team. As Budget Director of TEDxIEM 2025, he ensures financial precision and efficiency, aligning creativity with practicality to bring visionary ideas to life and make the event impactful and memorable. Believing that 'a budget is not just numbers on a sheet, but a blueprint for turning vision into reality,' he approaches every challenge with balance and foresight.",
+      bio: "Debnath Mukherjee, a third-year CSE student specializing in Artificial Intelligence at IEM Kolkata, is a detail-oriented strategist with a strong focus on resource management and sustainable execution. With an excellent track record of managing responsibilities in his previous roles, he brings both experience and reliability to the team. As Budget Director of TEDxIEM 2025, he ensures financial precision and efficiency, aligning creativity with practicality to bring visionary ideas to life and make the event impactful and memorable. Believing that 'a budget is not just numbers on a sheet, but a blueprint for turning vision into reality,' he approaches every challenge with balance and foresight.",
       email: "debnath@student.iem.edu.in",
       linkedin: "https://linkedin.com/in/debnath-mukherjee"
     },

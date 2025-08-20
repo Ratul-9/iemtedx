@@ -48,8 +48,8 @@ export const directors: TeamMember[] = [
   {
     name: 'DEBNATH MUKHERJEE',
     designation: 'Budget Director',
-    imageSrc: '/images/Defualt.jpg',
-    bio: '',
+    imageSrc: '/images/CoreTeam/saheb.jpg',
+    bio: 'Debnath Mukherjee, a third-year CSE student specializing in Artificial Intelligence at IEM Kolkata, is a detail-oriented strategist with a strong focus on resource management and sustainable execution. With an excellent track record of managing responsibilities in his previous roles, he brings both experience and reliability to the team. As Budget Director of TEDxIEM 2025, he ensures financial precision and efficiency, aligning creativity with practicality to bring visionary ideas to life and make the event impactful and memorable. Believing that "a budget is not just numbers on a sheet, but a blueprint for turning vision into reality," he approaches every challenge with balance and foresight.',
     linkedinUrl: 'https://www.linkedin.com/in/debnath-mukherjee-a72b9728a/',
   },
   {
